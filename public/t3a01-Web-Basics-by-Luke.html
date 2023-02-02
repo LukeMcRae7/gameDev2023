@@ -3,12 +3,12 @@
 <title> Basic web stuff</title>
 </head>
 <body>
-<h5>Version 0.0.7-1</h5>
+<h5>Version 0.0.7-2</h5>
 
 <h1 align=center>T3A01-Web-Basics-by-Luke.html </h1>
 
 <a href="http://www.google.ca">Link to Google</a><br>
-Plain Text <b> Bold </b> and <i> Italic </i> can you put them together<br>
+   <u><b><i>Bold, Italic, and Underlined</i></b></u><br>
 <hr>
 This is an image <br>
 <img width=200 src="https://petapixel.com/assets/uploads/2022/07/DALLEcopy-800x420.jpg"><br><br>
@@ -58,14 +58,21 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
    +`<b>Set object:</b> x = {age: 20, name:'Fred'}<br>
    <b>Use object:</b> x.age <i>or</i> x.name`
 }">
-  ⠀⠀
-  <input type=button value="O" onclick="{
-   document.getElementById('myDiv01').innerHTML = `<u>Objects</u><br>
-   A named list of variables<br><br>`
-   +`<b>Set object:</b> x = {age: 20, name:'Fred'}<br>
-   <b>Use object:</b> x.age <i>or</i> x.name`
+  ⠀
+  <input type=button value="F" onclick="{
+   document.getElementById('myDiv01').innerHTML = `<u>Functions</u><br>
+   Named groups of code that can be called multiple times<br><br>`
+   +`<b>Define function:</b> function myFun() { }<br>
+   <b>Activate function:</b> myFun()`
 }">
    
+   <input type=button value="F" onclick="{
+   document.getElementById('myDiv01').innerHTML = `<u>Functions</u><br>
+   Named groups of code that can be called multiple times<br><br>`
+   +`<b>Define function:</b> function myFun() { }<br>
+   <b>Activate function:</b> myFun()`
+}">
+  
 <div id="myDiv01">...</div>
 <body>
 </html>
