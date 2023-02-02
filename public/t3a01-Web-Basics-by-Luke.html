@@ -3,7 +3,7 @@
 <title> Basic web stuff</title>
 </head>
 <body>
-<h5>Version 0.0.7-2</h5>
+<h5>Version 0.1.0</h5>
 
 <h1 align=center>T3A01-Web-Basics-by-Luke.html </h1>
 
@@ -66,11 +66,24 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
    <b>Activate function:</b> myFun()`
 }">
    
-   <input type=button value="F" onclick="{
-   document.getElementById('myDiv01').innerHTML = `<u>Functions</u><br>
-   Named groups of code that can be called multiple times<br><br>`
-   +`<b>Define function:</b> function myFun() { }<br>
-   <b>Activate function:</b> myFun()`
+   <input type=button value="L" onclick="{
+   document.getElementById('myDiv01').innerHTML = `<u>Loops</u><br>
+   Repeating stuff<br><br>`
+   +`for (x=0; x < 3; x++) { }`
+}">
+   
+   <input type=button value="A" onclick="{
+   document.getElementById('myDiv01').innerHTML = `<u>Arrays</u><br>
+   A numbered list of variables<br><br>`
+   +`x[0] = 3;<br>
+   <b>x[1] = 6;`
+}">
+   
+   <input type=button value="C" onclick="{
+   document.getElementById('myDiv01').innerHTML = `<u>Classes</u><br>
+   Groups variables and functions to make programming easier<br><br>`
+   +`methods --> functions<br>
+   properties --> variables`
 }">
   
 <div id="myDiv01">...</div>
