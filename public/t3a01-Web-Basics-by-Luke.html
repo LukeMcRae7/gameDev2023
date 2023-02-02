@@ -3,7 +3,7 @@
 <title> Basic web stuff</title>
 </head>
 <body>
-<h5>Version 0.0.5-2</h5>
+<h5>Version 0.0.6</h5>
 
 <h1 align=center>T3A01-Web-Basics-by-Luke.html </h1>
 
@@ -26,8 +26,8 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 <h3> Write about Ellis' 10 main areas of coding</h3>
 
    <input type=button value="V" onclick="{
-   document.getElementById('myDiv01').innerHTML = `<u>Variables</u> <br><br>
-   Variables store things that can be called on or used for decisions<br>`
+   document.getElementById('myDiv01').innerHTML = `<u>Variables</u> <br>
+   Variables store things that can be called on or used for decisions<br><br>`
    +'x = 3<br>name = Fred'
 }">
 
@@ -35,9 +35,29 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
    document.getElementById('myDiv01').innerHTML = `<u>Input/Output</u><br>
    Information into and out of your program<br><br>`
    +`<b>Example input:</b> x = document.all.getElementById('myText01').value<br>
-   <b>Example output: </b>document.getElementById('myDiv01').innerHTML = x`
+   <b>Example output:</b> document.getElementById('myDiv01').innerHTML = x`
+}">
+   
+<input type=button value="D" onclick="{
+   document.getElementById('myDiv01').innerHTML = `<u>Decisions</u><br>
+   Decide stuff based on stored stuff<br><br>`
+   +`if(x==3) {}<br>
+   if (x <= 3) {}   else {}<br>
+   if ((x > 3) && (x < 9)) {}   else {}`
+}">
+ 
+ <input type=button value="E" onclick="{
+   document.getElementById('myDiv01').innerHTML = `<u>Events</u><br>
+   Triggers for code<br><br>`
+   +`<b>Some triggers:</b> onClick(), onMouseOver(), onBlur(), onFocus()`
 }">
 
+ <input type=button value="O" onclick="{
+   document.getElementById('myDiv01').innerHTML = `<u>Objects</u><br>
+   A named list of variables<br><br>`
+   +`<b>Set object:</b> x = {age: 20, name:'Fred'}<br>
+   <b>Use object:</b> x.age <i>or</i> x.name`
+}">
 <div id="myDiv01">...</div>
 <body>
 </html>
