@@ -1,27 +1,58 @@
-<h5>Version 0.0.2</h5>
+<h5>Version 0.5.1</h5>
 
 <h1 align=center>T1A02-Lists-and-tables-by-Fred</h1>
 
 <h2> Lists</h2>
 
-<ol> Ordered list of fav foods (at least 5)
-  <li>Kd
+<ol> <u>Ordered list of fav foods</u>
+  <li>Burgers
+  <li>Pizza
+  <li>Bacon
+  <li>Soup
   <li>Steak
+  <li>Rice
 </ol>
 
-<ul> Unordered list of Countries (at least 5)
+<ul><u>Unordered list of Countries</u>
   <li>Canada
-  <li>France
+  <li>Germany
+  <li>China
+  <li>Portugal
+  <li>South Africa
+  <li>Mexico
 </ul>
-
-<b>Assignment</b>. You make a list inside a list of 
-multiple items<br>
+<ol> <u>Food Groups with Examples</u>
+  <li>Fruits
+    <ul>
+      <li>Apple
+      <li>Orange
+      <li>Peach
+      </ul>
+  <li>Vegetables
+    <ul>
+      <li>Broccoli
+      <li>Carrot
+      <li>Avocado
+    </ul>
+  <li>Grains
+    <ul>
+      <li>Bread
+      <li>Pretzel
+      <li>English Muffin</li>
+    </ul>
+  </ol>
+  <a href="https://www.usda.gov/media/blog/2017/09/26/back-basics-all-about-myplate-food-groups">More Info About Food Groups</a>
 
 <h2> Tables</h2>
 
 <table border=1>
-<tr><td>A</td><td>B</td></tr>
-<tr><td>1</td><td>2</td></tr>
+  <tr><td>A</td><td>B</td>
+  <tr><td>1</td><td>2</td>
+  </table><br>
+<table border=2>
+<tr><td>+</td><td>A</td><td>B</td><td>C</td></tr>
+<tr><td>1</td><td>A1</td><td>B1</td><td>C1</td></tr>
+<tr><td>2</td><td>A2</td><td>B2</td><td>C2</td></tr>
 </table><br>
 
 
@@ -30,15 +61,17 @@ multiple items<br>
 
 <h2>Advanced</h2>
 
-Load an image and get it to move 10 pixels to the left using the button below<br>
+Click the buttons to make the ghost move<br>
 
-<image id="myImage01" src="" style="position:relative; left:0; top:0; width:50; height:50; "><br>
+<image id="myImage01" src="https://www.giantbomb.com/a/uploads/scale_small/8/87790/2469740-blinky.png" style="position:relative; left: 20px; top:0; width:50; height:50; "><br>
 
-<input type=button value="Go left" onclick="{
-   document.getElementById('myImage01').style.left = '200px'
-   document.getElementById('myDiv01').innerHTML = 'It went left'
+<input type=button value="←" onclick="{
+  
+   document.getElementById('myImage01').style.left = '10px'
+   document.getElementById('myDiv01').innerHTML = 'Ghost went left'
 }">
-
-
-
+<input type=button value="→" onclick="{
+  document.getElementById('myImage01').style.left = '20px'
+  document.getElementById('myDiv01').innerHTML = 'Ghost went right'
+}">
 <div id="myDiv01">...</div>
