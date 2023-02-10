@@ -1,9 +1,75 @@
+<style>
+  .none {cursor: none;height: 15px;}
+  input[type="button"] {
+background-color: #808080;
+color: white;
+padding: 5px 15px;
+border: none;
+border-radius: 5px;
+font-size: 15px;
+}
+          input[type="button"]:hover {
+background-color: #707070;
+cursor: pointer;
+}
+ :root {
+--background-color: #333;
+--text-color: #d3d3d3;
+}
+* {
+    font-family: 'Roboto', sans-serif;
+  }
+body {
+background-color: var(--background-color);
+color: var(--text-color);
+padding: 1em;
+}
+      
+a {
+color: #5794ff;
+}
+textarea {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 210px;
+  height: 60px;
+  transition: all 0.6s;
+}
 
-Version 0.0.1</br>
-<h1 align=center>t3a04-CSS-by-Luke</h1>
+textarea:focus {
+  left: 50px;
+  top: -10px;
+  height: 200px;
+  width: 350px;
+}
 
-Reference Link 
-<a href="https://www.w3schools.com/cssref/default.asp">w3schools</a><br>
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .rotating-div {
+    width: 80px;
+    height: 80px;
+
+    background-color: #d3d3d3;
+    animation: rotation 4s linear infinite;
+    color: #333;
+    text-align: center;
+    line-height: 150%;
+    font-weight: bold;
+  }
+</style>
+Version 0.1.4</br>
+<h1 align=center style="color:#d3d3d3;font-family:'Courier New'">t3a04-CSS-by-Luke</h1>
+<body>
+Reference Link: 
+<a href="https://www.w3schools.com/cssref/default.asp">w3schools</a><br><br>
 
 Properly done with a .css file listing all css commands for your
 website<br>
@@ -17,17 +83,28 @@ b {
 }
 </pre><br>
 
-I do CSS inside the tag. It overpowers all other methods<br>
+I do CSS inside the tag. It overpowers all other methods<br><br>
 
-<b > This is bold</b><br>
+<b style="font-family: Wingdings;"> This is Wingdings</b><i>(This is Wingdings)</i><br>
 <b id="myB1" style="color:#00ff00; background-Color:blue; "> This is bold</b>
-<input type=button value=Change onclick="{
-    document.getElementById('myB1').style.color = 'red'
-    document.getElementById('myB1').style.backgroundColor = 'yellow'
+<input id="changebtn" type=button value='Change' onclick="{ if(document.getElementById('myB1').style.color == 'red') {
+    document.getElementById('myB1').style.color = '#00ff00'
+    document.getElementById('myB1').style.backgroundColor = 'blue'
+    document.getElementById('changebtn').value = 'Change'
+} else {
+  document.getElementById('myB1').style.color = 'red'
+  document.getElementById('myB1').style.backgroundColor = 'yellow'
+  document.getElementById('changebtn').value = 'Change Back'
+}
 }"><br>
+</p>
+<textarea class="move">
+  This text area will move and enlarge when selected.
+  </textarea><br><br>
+<div class="none" style="height: 75px;width: 300px;background-color: #d3d3d3;color: #333;text-align: center;line-height: 500%;font-weight: bold;">Cursors disappear behind this box</div><br>
+<h3 style="letter-spacing: 10px;">This is 10px letter spacing</h3>
+<h3 style="letter-spacing: -2px;">This is -2px letter spacing</h3><br>
+<div class="rotating-div">Rotating div</div>
+</body>
 
 
-
-<textarea style="position:relative; left:0; top:0; width:200; height:50; ">
-Advanced see if you move this textarea
-</textarea><br>
