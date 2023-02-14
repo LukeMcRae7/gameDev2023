@@ -1,4 +1,10 @@
 <style>
+  .mask1 {
+  -webkit-mask-image: url(https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-instagram-social-platform-icon-png-image_6315976.png);
+  mask-image: url(https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-instagram-social-platform-icon-png-image_6315976.png);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
   .none {cursor: none;height: 15px;}
   input[type="button"] {
 background-color: #808080;
@@ -101,10 +107,33 @@ I do CSS inside the tag. It <u style="font-weight: 1000;"> overpowers</u> all ot
 <textarea class="move">
   This text area will move and enlarge when selected.
   </textarea><br><br>
-<div class="none" style="height: 75px;width: 300px;background-color: #d3d3d3;color: #333;text-align: center;line-height: 500%;font-weight: bold;">Cursors disappear behind this box</div><br>
+<div class="" id="cursorChange" style="height: 75px;width: 300px;background-color: #d3d3d3;color: #333;text-align: center;line-height: 500%;font-weight: bold;border-style: dotted dashed groove double;border-color: rgb(255, 0, 0);">Choose what cursor does on this box</div><br>
+<select id="mySelect01" size=4 onChange="{
+  if (document.getElementById('mySelect01').value == 'Disappear'){
+   document.getElementById('cursorChange').style.cursor = 'none';
+  }
+  else if (document.getElementById('mySelect01').value == 'Hand'){
+    document.getElementById('cursorChange').style.cursor = 'grab';
+   }
+   else if (document.getElementById('mySelect01').value == 'Crosshair'){
+    document.getElementById('cursorChange').style.cursor = 'Crosshair';
+   }
+   else if (document.getElementById('mySelect01').value == 'Loading'){
+    document.getElementById('cursorChange').style.cursor = 'Wait';
+   }
+  }">
+ <option value='Hand'>Hand
+ <option value='Crosshair'>Crosshair
+ <option value='Disappear'>Disappear
+ <option value='Loading'>Loading
+ </select>
 <h3 style="letter-spacing: 10px;">This is 10px letter spacing</h3>
 <h3 style="letter-spacing: -2px;">This is -2px letter spacing</h3><br>
-<div class="rotating-div">Rotating div</div>
+<div class="rotating-div">Rotating div</div><br>
+<img src="https://www.adorama.com/alc/wp-content/uploads/2018/11/landscape-photography-tips-yosemite-valley-feature.jpg"height="300">
+<img src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-instagram-social-platform-icon-png-image_6315976.png"height="300"><br>
+<h2>Masking this landscape onto this logo</h2>
+
+<div class="mask1"><img src="https://www.adorama.com/alc/wp-content/uploads/2018/11/landscape-photography-tips-yosemite-valley-feature.jpg"height="400"></div>
+
 </body>
-
-
