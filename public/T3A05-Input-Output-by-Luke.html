@@ -1,0 +1,56 @@
+
+
+Version 0.1.2-3
+
+<h1 align=center style="color:#d3d3d3;font-family:'Courier New'">T3A05-Input-Output-by-Luke.html </h1>
+
+        <style>
+              input[type="button"] {
+        background-color: #808080;
+        color: white;
+        padding: 5px 5px;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+      }
+                      input[type="button"]:hover {
+        background-color: #707070;
+        cursor: pointer;
+      }
+             :root {
+        --background-color: #333;
+        --text-color: #fff;
+      }
+         body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: "Roboto", sans-serif;
+        padding: 1em;
+      }
+      a {
+    color: #5794ff;
+  }
+</style>
+<a href="https://www.w3schools.com/jsref/prop_html_innerhtml.asp">Input Output Reference</a>
+<fieldset>
+<h4> Example input output code</h4>
+<pre>
+    let myIn01 = document.getElementById('myNum01').value
+    document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' + myIn01*myIn01
+</pre>
+
+<h4> Example working code</h4>
+
+<input id="myNum01" type=number value="4" ><br> 
+
+<input type=button value="myEvent squares" onclick="{
+    let myIn01 = parseFloat(document.getElementById('myNum01').value)
+    let myAnswer = myIn01 * myIn01
+    document.getElementById('myDiv01').innerHTML = 
+      myIn01 + ' squared = ' + myAnswer
+}"><br>
+
+<div id="myDiv01">...</div>
+</fieldset>
+
+
