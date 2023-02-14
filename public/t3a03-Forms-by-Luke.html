@@ -1,4 +1,4 @@
-<h6>Version 0.1.6</h6>
+<h6>Version 1.0.0</h6>
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 <style>
 :root {
@@ -15,36 +15,55 @@
 </style>
 <h1 align=center style="color:#d3d3d3;font-family:'Courier New'">t3a03-Forms-by-Luke.html</h1>
 <form >
-Email: <input type="email"><br>
-Password: <input type="password"><br>
-Enter Your Name: <input type=text id="myName" value="Fred"><br><br>
-Checkbox: <br>
+   <fieldset>
+      <legend>Personal Details:</legend>
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname"><br><br>
+      <label for="email">Email:⠀⠀⠀</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"><br><br>
+      <label for="birthday">Birthday:⠀</label>
+      <input type="date" id="birthday" name="birthday"><br><br>
+<fieldset>
+      <legend>Gender: </legend>
+      Male: <input type=radio name="myRad01" value=""><br>
+      Female: <input type=radio name="myRad01" value=""><br>
+      Other: <input type=radio name="myRad01" value=""><br>
+     </fieldset>
+   </fieldset>
+
+
+     <fieldset>
+      <legend>Preferences: </legend>
+      Google Search:   <input type="search" id="gsearch" name="gsearch"><br>
 Beef:<input type=checkbox><br>
 Veggy: <input type=checkbox><br>
-Radio Buttons:<br>
+Dairy:<input type=checkbox><br><br>
  107.7 <input type=radio name="myRad01" value=""><br>
- 83.5 <input type=radio name="myRad01" value=""><br>
- Date of Birth: <input type="date" id="date" name="date"><br>
+ 83.5 <input type=radio name="myRad01" value=""><br><br>
+ <select id="mySelect01" size=2 onChange="{
+   document.getElementById('myArea01').value = document.getElementById('mySelect01').value
+  }">
+ <option value='Canada'>Canada
+ <option value='Not Canada'>Not Canada
+ <option value='Finland'>Finland
+ </select><br>
+ Favorite Number: <input type="number">
+     </fieldset>
 
-
-File: <input type=file><br>
-reset: <input type =reset><br>
-Submit: <input type=submit onclick="{
-   document.getElementById('myArea01').value = myFirst
-}"><br>
-
-Button: <input type=button value="click" onclick="{
-   document.getElementById('myArea01').value = 'Cool'
-}"><br>
-Textarea:<br>
+     
+     <fieldset>
+      <legend>Input: </legend>
+      Textarea:<br>
 <textarea id="myArea01" cols=60 rows=5> wow </textarea><br>
-
-Select Box:<BR>
-<select id="mySelect01" size=2 onChange="{
-  document.getElementById('myArea01').value = document.getElementById('mySelect01').value
- }">
-<option value='myOne'>One
-<option value='myTwo'>Two
-<option value='myThree'>Three
-</select>
+<input type=button value="Cool" onclick="{
+   document.getElementById('myArea01').value = 'Cool'
+}"><br><br>
+File: <input type=file><br>
+     </fieldset>
+reset: <input type =reset><br>
+Submit: <input type=submit><br>
 </form>
