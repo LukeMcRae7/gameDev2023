@@ -1,5 +1,3 @@
-
-
 Version 0.1.2-3
 
 <h1 align=center style="color:#d3d3d3;font-family:'Courier New'">T3A05-Input-Output-by-Luke.html </h1>
@@ -52,5 +50,18 @@ Version 0.1.2-3
 
 <div id="myDiv01">...</div>
 </fieldset>
-
-
+<br>
+<input id="myDate01" type="date" value="2023-02-15"><br>
+<input type="button" value="Generate Day" onclick="{
+  let myDay01 = document.getElementById('myDate01').value
+  document.getElementById('myDiv02').innerHTML = myDay01
+}">
+<div id="myDiv02">...</div><br><br>
+<textarea id="myTextArea01" style="width: 150px;height: 70px">hello world</textarea><br>
+<input type=button value="Textarea Properties" onclick="{
+let myWidth = document.getElementById('myTextArea01').style.width
+let myHeight = document.getElementById('myTextArea01').style.height
+let mySpeech = document.getElementById('myTextArea01').value
+document.getElementById('myDiv03').innerHTML = 'Textarea is ' + myHeight + ' tall, ' + myWidth + ' wide, and says &quot' + mySpeech + '&quot'
+}"><br>
+<div id="myDiv03">...</div>
