@@ -1,4 +1,4 @@
-Version 0.1.2-3
+Version 0.1.8
 
 <h1 align=center style="color:#d3d3d3;font-family:'Courier New'">T3A05-Input-Output-by-Luke.html </h1>
 
@@ -51,11 +51,13 @@ Version 0.1.2-3
 <div id="myDiv01">...</div>
 </fieldset>
 <br>
+<fieldset>
 <input id="myDate01" type="date" value="2023-02-15"><br>
 <input type="button" value="Generate Day" onclick="{
   let myDay01 = document.getElementById('myDate01').value
   document.getElementById('myDiv02').innerHTML = myDay01
 }">
+
 <div id="myDiv02">...</div><br><br>
 <textarea id="myTextArea01" style="width: 150px;height: 70px">hello world</textarea><br>
 <input type=button value="Textarea Properties" onclick="{
@@ -64,4 +66,29 @@ let myHeight = document.getElementById('myTextArea01').style.height
 let mySpeech = document.getElementById('myTextArea01').value
 document.getElementById('myDiv03').innerHTML = 'Textarea is ' + myHeight + ' tall, ' + myWidth + ' wide, and says &quot' + mySpeech + '&quot'
 }"><br>
-<div id="myDiv03">...</div>
+<div id="myDiv03">...</div><br>
+</fieldset><br>
+
+
+<fieldset>
+To save some time: <input type="button" value="Image URL #1" onclick="{
+  document.getElementById('inputSrc1').value = 'https://media.springernature.com/lw703/springer-static/image/art%3A10.1038%2F528452a/MediaObjects/41586_2015_Article_BF528452a_Figg_HTML.jpg'
+  }">
+  <input type="button" value="Image URL #2" onclick="{
+    document.getElementById('inputSrc1').value = 'https://media4.giphy.com/media/LXONhtCmN32YU/200w.gif?cid=6c09b952zvbsiv7cmlr3y1eokccanell8g3hpu0yzgnwyt2y&rid=200w.gif&ct=g'
+    }">
+    <input type="button" value="Image URL #3" onclick="{
+      document.getElementById('inputSrc1').value = 'https://cdn.pixabay.com/photo/2013/10/09/02/27/lake-192990__340.jpg'
+      }">
+      <input type="button" value="Image URL #4" onclick="{
+        document.getElementById('inputSrc1').value = 'https://previews.123rf.com/images/20er/20er1405/20er140500101/28292693-image-of-camel-in-desert-wahiba-oman.jpg'
+        }"><br>
+Input image source:<br>
+<script>var mySrc1 = "https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712__340.jpg";</script>
+
+<input style="width: 700px" id="inputSrc1"><br>
+<input type="button" id=imgButton1 value="Load Image" onclick="{
+document.getElementById('myImg01').src = document.getElementById('inputSrc1').value
+}"><br><br>
+<img src="" id="myImg01" style="height: 250px">
+</fieldset>
