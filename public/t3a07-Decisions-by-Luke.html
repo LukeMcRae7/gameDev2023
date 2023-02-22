@@ -27,7 +27,7 @@ color: #5794ff;
 }
 </style>
 
-<h1 align=center>t1a07-Decisions-by-Luke.html</h1>
+<h2 align=center>t1a07-Decisions-by-Luke.html</h2>
 <fieldset><legend>Example:</legend>
 <a href="https://www.w3schools.com/js/js_if_else.asp">Good Reference</a><br>
 Note: ! = Not,  && = AND,   || = OR
@@ -69,4 +69,24 @@ if (myHour < 18) {
 
 
 <div id="myDiv01">...</div>
+</fieldset><br>
+<fieldset><legend>Time-based if statement</legend>
+    This phrase will change based on the time of day:
+<br><b id="myText02"></b> <br><i id="hourDisplay"></i>
+
+<script>
+const hour = new Date().getHours(); 
+document.getElementById('hourDisplay').innerHTML = 'The hour is: ' + hour;
+let myTime;
+
+if (hour < 12) {
+  myTime = "It's still morning!";
+} else if(hour < 17) {
+  myTime = "It's afternoon!";
+} else {
+    myTime = "It's night!"
+}
+
+document.getElementById("myText02").innerHTML = myTime;
+</script>
 </fieldset>
