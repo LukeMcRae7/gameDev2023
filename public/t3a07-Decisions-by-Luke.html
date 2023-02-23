@@ -70,23 +70,49 @@ if (myHour < 18) {
 
 <div id="myDiv01">...</div>
 </fieldset><br>
+<!--
+    BEGINNING OF MY CODE
+-->
+<script>
+    function refresh(){
+        if (myHour < 12) {
+  myTime = "It's still morning!";
+} else if(myHour < 17) {
+  myTime = "It's afternoon!";
+} else {
+    myTime = "It's night!"
+}
+if (myHour > 12) {
+    twelveHour = myHour - 12 + ' pm'
+}
+else {    twelveHour = myHour + 'am'}
+document.getElementById("myText02").innerHTML = myTime;
+document.getElementById('hourDisplay').innerHTML = 'The hour is: ' + twelveHour;
+    }
+</script>
+
+
+
+
 <fieldset><legend>Time-based if statement</legend>
     This phrase will change based on the time of day:
 <br><b id="myText02"></b> <br><i id="hourDisplay"></i>
 
 <script>
 const hour = new Date().getHours(); 
-document.getElementById('hourDisplay').innerHTML = 'The hour is: ' + hour;
 let myTime;
+let myHour = hour
+refresh()
+</script><br><br>
+Manually set the hour (1-24): <i style="color: gold">Try a number outside of 1-24</i><br>
+<input id="timeChange" type="number">
+<input type=button value="Apply" onclick="{
+if(document.getElementById('timeChange').value <= 24 && document.getElementById('timeChange').value >= 1){
+ myHour = document.getElementById('timeChange').value
+ refresh()}
+ else {
+    alert('Value must be from 1-24')
+ }
+}">
 
-if (hour < 12) {
-  myTime = "It's still morning!";
-} else if(hour < 17) {
-  myTime = "It's afternoon!";
-} else {
-    myTime = "It's night!"
-}
-
-document.getElementById("myText02").innerHTML = myTime;
-</script>
 </fieldset>
