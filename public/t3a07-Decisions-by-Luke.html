@@ -85,7 +85,7 @@ if (myHour < 18) {
 if (myHour > 12) {
     twelveHour = myHour - 12 + ' pm'
 }
-else {    twelveHour = myHour + 'am'}
+else {    twelveHour = myHour + ' am'}
 document.getElementById("myText02").innerHTML = myTime;
 document.getElementById('hourDisplay').innerHTML = 'The hour is: ' + twelveHour;
     }
@@ -94,8 +94,8 @@ document.getElementById('hourDisplay').innerHTML = 'The hour is: ' + twelveHour;
 
 
 
-<fieldset><legend>Time-based if statement</legend>
-    This phrase will change based on the time of day:
+<fieldset>
+    This phrase will change based on the time of day:<br>
 <br><b id="myText02"></b> <br><i id="hourDisplay"></i>
 
 <script>
