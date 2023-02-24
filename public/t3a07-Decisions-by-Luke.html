@@ -1,4 +1,4 @@
-Version 0.0.1
+Version 1.0.0
 <style>
     input[type="button"] {
 background-color: #808080;
@@ -73,6 +73,10 @@ if (myHour < 18) {
 <!--
     BEGINNING OF MY CODE
 -->
+
+<!--
+    TIME:
+-->
 <script>
     function refresh(){
         if (myHour < 12) {
@@ -82,16 +86,16 @@ if (myHour < 18) {
 } else {
     myTime = "It's night!"
 }
-if (myHour > 12) {
+if (myHour == 24) {twelveHour = myHour - 12 + ' am'}
+else if (myHour > 12) {
     twelveHour = myHour - 12 + ' pm'
 }
+else if (myHour == 12) {twelveHour = myHour + ' pm'}
 else {    twelveHour = myHour + ' am'}
 document.getElementById("myText02").innerHTML = myTime;
 document.getElementById('hourDisplay').innerHTML = 'The hour is: ' + twelveHour;
     }
 </script>
-
-
 
 
 <fieldset>
@@ -104,7 +108,7 @@ let myTime;
 let myHour = hour
 refresh()
 </script><br><br>
-Manually set the hour (1-24): <i style="color: gold">Try a number outside of 1-24</i><br>
+Manually set the hour (1-24): <i style="color: gold">*Try a number outside of 1-24</i><br>
 <input id="timeChange" type="number">
 <input type=button value="Apply" onclick="{
 if(document.getElementById('timeChange').value <= 24 && document.getElementById('timeChange').value >= 1){
@@ -114,5 +118,22 @@ if(document.getElementById('timeChange').value <= 24 && document.getElementById(
     alert('Value must be from 1-24')
  }
 }">
+</fieldset>
 
+<!--
+    COOL
+-->
+<br><fieldset>
+These buttons only work if the other has not been clicked:<br>
+<input type="button" value="Cool" onclick="{
+if (document.getElementById('myDiv02').innerHTML != 'Not Cool'){
+    document.getElementById('myDiv02').innerHTML = 'Cool'
+}
+}">
+<input type="button" value="Not Cool" onclick="{
+    if (document.getElementById('myDiv02').innerHTML != 'Cool'){
+    document.getElementById('myDiv02').innerHTML = 'Not Cool'
+}
+}">
+<div id="myDiv02">...</div>
 </fieldset>
