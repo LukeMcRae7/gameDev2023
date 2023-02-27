@@ -1,1 +1,147 @@
+Version 0.0.1
+<style>
+    input[type="button"] {
+background-color: #808080;
+color: white;
+padding: 5px 5px;
+border:100px #333;
+border-radius: 5px;
+font-size: 15px;
+}
+            input[type="button"]:hover {
+background-color: #707070;
+cursor: pointer;
+}
+   :root {
+--background-color: #333;
+--text-color: #fff;
+}
+body {
+background-color: var(--background-color);
+color: var(--text-color);
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+padding: 1em;
+}
+a {
+color: #5794ff;
+}
+</style>
+<h2 align=center>t1a08-Loops-by-Luke.html</h2>
 
+<a href="https://www.w3schools.com/js/js_loop_for.asp">Good reference to Javascript Loops</a><br>
+
+<fieldset><legend>Example: </legend>
+<h4> Example input output code</h4>
+<pre>
+
+</pre>
+
+<h4> Example working code</h4>
+
+Max loops: <input id="myNum01" type=number value="4" ><br> 
+
+<input type=button value="Basic For loop with Decisions" onclick="{
+    document.getElementById('myDiv01').innerHTML = ''
+    let myTemp = ''
+
+    let myMax = parseInt(document.getElementById('myNum01').value)
+
+    for (let myLoop = 0; myLoop < myMax; myLoop++ ){
+
+       if (myLoop * 2 > myMax){
+          myTemp += ' cool '
+      }
+
+      myTemp += 'Loop number: ' + myLoop + '<br>'
+    }
+    document.getElementById('myDiv01').innerHTML = myTemp 
+}">
+
+
+<input type=button value="Basic For loop only" onclick="{
+    let myTemp = ''
+    let myMax = parseInt(document.getElementById('myNum01').value)
+    for (let myLoop = 0; myLoop < myMax; myLoop++ ){
+      myTemp += 'Loop number: ' + myLoop + '<br>'
+    }
+    document.getElementById('myDiv01').innerHTML = myTemp 
+}">
+
+
+
+<input type=button value="Even number identifier" onclick="{
+    document.getElementById('myDiv01').innerHTML = ''
+    let myTemp = ''
+
+    let myMax = parseInt(document.getElementById('myNum01').value)
+
+    for (let myLoop = 0; myLoop < myMax; myLoop++ ){
+
+       if (myLoop % 2 == 0){
+          myTemp += 'Even Number, '
+      }
+
+      myTemp += 'Loop number: ' + myLoop + '<br>'
+    }
+    document.getElementById('myDiv01').innerHTML = myTemp 
+}">
+
+
+<input type=button value="Odd number identifier" onclick="{
+    document.getElementById('myDiv01').innerHTML = ''
+    let myTemp = ''
+
+    let myMax = parseInt(document.getElementById('myNum01').value)
+
+    for (let myLoop = 0; myLoop < myMax; myLoop++ ){
+
+       if (myLoop % 2 == 1){
+          myTemp += '<font style=\'color:red;\'> Odd </font>'
+      }
+
+      myTemp += 'Loop number: ' + myLoop + '<br>'
+    }
+    document.getElementById('myDiv01').innerHTML = myTemp 
+}">
+
+<div id="myDiv01"><font color=red>...</font></div>
+
+</fieldset><br>
+<fieldset><legend>Making a table with loops</legend>
+    <input type="number" id="myNum02" value="3" style="width: 50px"> Rows<br>
+    <input type="number" id="myNum03" value="3" style="width: 50px"> Columns<br>
+    <input type="number" id="myNum04" value="5" style="width: 50px"> Special Number<br>
+    
+    <input type=button value="Create Table" onclick="{
+        document.getElementById('myDiv04').innerHTML = ''
+        let myTemp = ''
+        let myRows = parseInt(document.getElementById('myNum02').value)
+        let myCols = parseInt(document.getElementById('myNum03').value)
+        let mySpecial = parseInt(document.getElementById('myNum04').value)
+        let myMatrix = []
+        let myCount = 1
+        for (let i = 0; i < myRows; i++ ){
+            let row = []
+            for (let j = 0; j < myCols; j++ ){
+                row.push(myCount++)
+            }
+            myMatrix.push(row)
+        }
+        myTemp += '<table>'
+        for (let i = 0; i < myMatrix.length; i++ ){
+            myTemp += '<tr>'
+            for (let j = 0; j < myMatrix[i].length; j++ ){
+                if (myMatrix[i][j] === mySpecial) {
+                    myTemp += '<td style=\'color:gold;\'>' + myMatrix[i][j] + '</td>'
+                } else {
+                    myTemp += '<td>' + myMatrix[i][j] + '</td>'
+                }
+            }
+            myTemp += '</tr>'
+        }
+        myTemp += '</table>'
+        document.getElementById('myDiv04').innerHTML = myTemp 
+    }">
+    
+    <div id="myDiv04"><font color=red>...</font></div>
+</fieldset>
