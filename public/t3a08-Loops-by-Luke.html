@@ -107,7 +107,16 @@ Max loops: <input id="myNum01" type=number value="4" ><br>
 <div id="myDiv01"><font color=red>...</font></div>
 
 </fieldset><br>
-<fieldset><legend>Making a table with loops</legend>
+
+
+
+
+
+
+
+
+
+<fieldset><legend>Making a table with loops: </legend>
     <input type="number" id="myNum02" value="3" style="width: 50px"> Rows<br>
     <input type="number" id="myNum03" value="3" style="width: 50px"> Columns<br>
     <input type="number" id="myNum04" value="5" style="width: 50px"> Special Number<br>
@@ -144,4 +153,28 @@ Max loops: <input id="myNum01" type=number value="4" ><br>
     }">
     
     <div id="myDiv04"><font color=red>...</font></div>
+</fieldset>
+
+
+
+
+<br>
+
+
+
+
+<fieldset><legend>Fibonacci Sequence</legend>
+    Max Loops: <input type="number" id="myMax01" value="10" style="width: 50px"><br>
+    <input type="button" value="Generate Fibonacci Sequence" onclick="{
+var myNum05 = document.getElementById('myMax01').value;
+var myNum06;
+var myFib = [0, 1];
+
+for (myNum06 = 2; myNum06 <= myNum05; myNum06++) {
+    myFib[myNum06] = myFib[myNum06 - 2] + myFib[myNum06 - 1]
+
+}
+document.getElementById('myDiv05').innerHTML = myFib
+}">
+<div id="myDiv05"><font color=red>...</font></div>
 </fieldset>
