@@ -1,4 +1,4 @@
-Version 0.0.1
+Version 1.0.0
 <style>
     input[type="button"] {
 background-color: #808080;
@@ -63,5 +63,81 @@ For Global variables Mr. Ellis prefers to use document.myVarName
 
 <!--
     Beginning of my code
--->
+--><br>
+<fieldset><legend>Adult or not adult:</legend>
+Age: <input id="myText03" type=number value="20" style="width: 80px"><br>
 
+<input type=button value="Show Variable" onclick="{
+ let myIn03 = parseInt(document.getElementById('myText03').value)
+ let myOut03
+ if(myIn03 >= 18 && myIn03 <= 55) {
+        myOut03 = 'You are an adult'
+    }
+    else if (myIn03 > 55){
+        myOut03 = myIn03 + '?! You are OLD'
+    }
+    else {myOut03 = 'You are not an adult'}
+ document.getElementById('myDiv03').innerHTML = myOut03
+}"><br>
+
+<input type=button value="Using no variable" onclick="{
+    if(parseInt(document.getElementById('myText03').value) >= 18 && parseInt(document.getElementById('myText03').value) <= 55) {
+        document.getElementById('myDiv03').innerHTML = 'You are an adult'
+    }
+    else if(parseInt(document.getElementById('myText03').value) > 55){
+        document.getElementById('myDiv03').innerHTML = parseInt(document.getElementById('myText03').value) + '?! You are OLD'
+    }
+    else {document.getElementById('myDiv03').innerHTML = 'You are not an adult'}
+}">
+<br>
+<div id="myDiv03">...</div>
+</fieldset><br>
+
+
+
+
+<fieldset><legend>Shopping Cost Calculator:</legend>
+<p>Enter the quantity and price of each item to calculate the total cost:</p>
+
+<table>
+    <tr>
+      <td></td>
+      <td>Quantity</td>
+      <td>Price</td>
+    </tr>
+    <tr>
+      <td>Item 1:</td>
+      <td><input id="item1Qty" type="number" value="0" style="width: 80px"></td>
+      <td><input id="item1Price" type="number" value="0.00" style="width: 80px"></td>
+    </tr>
+    <tr>
+      <td>Item 2:</td>
+      <td><input id="item2Qty" type="number" value="0" style="width: 80px"></td>
+      <td><input id="item2Price" type="number" value="0.00" style="width: 80px"></td>
+    </tr>
+    <tr>
+      <td>Item 3:</td>
+      <td><input id="item3Qty" type="number" value="0" style="width: 80px"></td>
+      <td><input id="item3Price" type="number" value="0.00" style="width: 80px"></td>
+    </tr>
+  </table>
+
+<input type="button" value="Calculate Total" onclick="calculateTotal()">
+
+<p>Total cost: $<span id="totalCost">0.00</span></p>
+
+<script>
+function calculateTotal() {
+  let item1Qty = parseInt(document.getElementById('item1Qty').value);
+  let item1Price = parseFloat(document.getElementById('item1Price').value);
+  let item2Qty = parseInt(document.getElementById('item2Qty').value);
+  let item2Price = parseFloat(document.getElementById('item2Price').value);
+  let item3Qty = parseInt(document.getElementById('item3Qty').value);
+  let item3Price = parseFloat(document.getElementById('item3Price').value);
+
+  let totalCost = (item1Qty * item1Price) + (item2Qty * item2Price) + (item3Qty * item3Price);
+
+  document.getElementById('totalCost').innerHTML = totalCost.toFixed(2);
+}
+</script>
+</fieldset>
