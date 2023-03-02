@@ -1,0 +1,67 @@
+<script>
+
+function myExampleFunction(){
+   let myIn01 = parseInt(document.getElementById('myText01').value)
+   let mySum = myIn01 + myIn01
+   let myReply =  myIn01 + ' + ' + myIn01 + ' = ' + mySum
+   return myReply
+
+}
+
+</script>
+
+Version 0.0.1
+<style>
+   input[type="button"] {
+background-color: #808080;
+color: white;
+padding: 5px 5px;
+border:100px #333;
+border-radius: 5px;
+font-size: 15px;
+}
+           input[type="button"]:hover {
+background-color: #707070;
+cursor: pointer;
+}
+  :root {
+--background-color: #333;
+--text-color: #fff;
+}
+body {
+background-color: var(--background-color);
+color: var(--text-color);
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+padding: 1em;
+}
+a {
+color: #5794ff;
+}
+</style>
+<h2 align=center>t1a09-Functions-by-Luke.html</h2>
+
+<a href="https://www.w3schools.com/js/js_functions.asp">Good reference to Javascript functions</a><br>
+
+Functions are used to sensibly organzie code. Then they are "Called" elsewhere. 
+Information can also be passed to functions (that's more advanced).
+<fieldset>
+<h4> Example Functions code</h4>
+<pre>
+function myGrabNumber(){
+   return parseInt(document.getElementById('myText01').value)
+}
+</pre>
+
+<h4> Example working code</h4>
+
+
+<input type=text id="myText01" value="3"><br>
+
+<input type=button value="Function Example" onClick="{
+   document.getElementById('myDiv01').innerHTML =  myExampleFunction()
+}">
+
+<div id="myDiv01">...</div>
+</fieldset>
+
+
