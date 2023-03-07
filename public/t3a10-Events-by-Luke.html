@@ -1,0 +1,221 @@
+Version 1.0.0 <br>
+<style>
+   input[type="button"] {
+background-color: #808080;
+color: white;
+padding: 5px 5px;
+border:10px #333;
+border-radius: 5px;
+font-size: 15px;
+}
+           input[type="button"]:hover {
+background-color: #575757;
+cursor: pointer;
+}
+  :root {
+--background-color: #333;
+--text-color: #fff;
+}
+body {
+background-color: var(--background-color);
+color: var(--text-color);
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+padding: 1em;
+}
+a {
+color: #5794ff;
+}
+input[type="radio"] {
+  display: none;
+}
+</style>
+
+<h2 align=center>t1a10-Events-by-Luke.html</h2> 
+
+<a href="https://way2tutorial.com/html/html5_events_handler_list.php">
+ Good reference to HTML Events</a> <br>
+
+Events are HTML code that activates Javascript code 
+<fieldset><legend>Example: </legend>
+<h4> Example Events code</h4> 
+<pre> 
+<b id="myB01" onMouseOut="{ 
+   document.getElementById('myB01').innerHTML = 'This is bold.'
+}"> Bold stuff here </b>
+</pre> 
+
+<h4> Example working event</h4> 
+
+<input type=text id="myText01" value="3"><br> 
+
+<input type=button value="Example onClick" onClick="{ 
+   document.getElementById('myDiv01').innerHTML = document.getElementById('myText01').value
+}"> 
+
+<div id="myDiv01">...</div> 
+
+<b id="myB02" onMouseOut="{ 
+   document.getElementById('myB02').innerHTML = 'This is nice.'
+}"   onMouseOver = "{
+   document.getElementById('myB02').innerHTML = 'This is cool.'
+}"> This is bold</b> <br>
+</fieldset>
+<br>
+
+<fieldset><legend>onMouseMove: </legend>
+<div style="background-color:#808080;height: 50px;border-color: #353535;border-width: 3px;border-style:groove" onmousemove="document.getElementById('x').innerHTML = event.clientX; document.getElementById('y').innerHTML = event.clientY;">
+   Move your mouse here: X=<span id="x"></span>, Y=<span id="y"></span>
+ </div>
+</fieldset>
+<br>
+ <fieldset><legend>onChange: </legend>
+ <label for="myRange">Choose a value between 1 and 100:</label>
+<input type="range" id="myRange" min="1" max="100" onchange="updateValue()">
+
+<p>The selected value is: <span id="value"></span></p>
+
+<script>
+function updateValue() {
+  var range = document.getElementById("myRange");
+  var value = document.getElementById("value");
+  value.innerHTML = range.value;
+  var hue = range.value * 1.2; 
+  range.style.background = "linear-gradient(to right, hsl(" + hue + ", 100%, 50%), hsl(" + hue + ", 100%, 70%))";
+}
+</script>
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+<br>
+<fieldset><legend>Canvas: </legend>
+<script>
+  var brushColor = "black";
+</script>
+Select Color: (click one)
+
+
+<input type="radio" id="blackRadio" name="colorRadio" value="black" onchange="{
+  if (document.getElementById('blackRadio').checked) {
+    brushColor = 'black';
+    document.getElementById('blackLabel').style.borderWidth = '2px';
+    document.getElementById('redLabel').style.borderWidth = '0px';
+    document.getElementById('blueLabel').style.borderWidth = '0px';
+    document.getElementById('greenLabel').style.borderWidth = '0px';
+  }
+}">
+<label for="blackRadio" id=blackLabel style="border: 2px solid white;background-color: black;color:#fff">⠀⠀⠀⠀⠀</label>
+
+⠀
+
+<input type="radio" id="redRadio" name="colorRadio" value="red" onchange="{
+  if (document.getElementById('redRadio').checked) {
+    brushColor = 'red';
+    document.getElementById('blackLabel').style.borderWidth = '0px';
+    document.getElementById('redLabel').style.borderWidth = '2px';
+    document.getElementById('blueLabel').style.borderWidth = '0px';
+    document.getElementById('greenLabel').style.borderWidth = '0px';
+  }
+}">
+<label for="redRadio" id=redLabel style="border: 0px solid white;background-color: red;color:#fff">⠀⠀⠀⠀⠀</label>
+
+⠀
+
+<input type="radio" id="blueRadio" name="colorRadio" value="blue" onchange="{
+  if (document.getElementById('blueRadio').checked) {
+    brushColor = 'blue';
+    document.getElementById('blackLabel').style.borderWidth = '0px';
+    document.getElementById('redLabel').style.borderWidth = '0px';
+    document.getElementById('blueLabel').style.borderWidth = '2px';
+    document.getElementById('greenLabel').style.borderWidth = '0px';
+  }
+}">
+<label for="blueRadio" id=blueLabel style="border: 0px solid white;background-color: blue;color:#fff">⠀⠀⠀⠀⠀</label>
+
+⠀
+
+<input type="radio" id="greenRadio" name="colorRadio" value="green" onchange="{
+  if (document.getElementById('greenRadio').checked) {
+    brushColor = 'green';
+    document.getElementById('blackLabel').style.borderWidth = '0px';
+    document.getElementById('redLabel').style.borderWidth = '0px';
+    document.getElementById('blueLabel').style.borderWidth = '0px';
+    document.getElementById('greenLabel').style.borderWidth = '2px';
+  }
+}">
+<label for="greenRadio" id=greenLabel style="border: 0px solid white;background-color: green;color:#fff">⠀⠀⠀⠀⠀</label>
+
+
+
+
+
+
+
+<br>Draw Something!<br>
+
+
+<canvas id="canvas" width="700" height="600" style="background-color: ffffff"></canvas>
+
+<script>
+   var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+
+var isDrawing = false;
+var lastX, lastY;
+
+canvas.addEventListener("mousemove", function(event) {
+  var x = event.clientX + window.scrollX - 35;
+  var y = event.clientY + window.scrollY - 750;
+  draw(x, y);
+});
+
+canvas.addEventListener("touchmove", function(event) {
+  var touch = event.touches[0];
+  var x = touch.clientX + window.scrollX - 35;
+  var y = touch.clientY + window.scrollY - 750;
+  draw(x, y);
+});
+function draw(x, y) {
+  if (!isDrawing) {
+    return;
+  }
+  context.lineWidth = 10;
+  context.lineCap = "round";
+  context.strokeStyle = brushColor;
+  
+  context.beginPath();
+  context.moveTo(lastX, lastY);
+  context.lineTo(x, y);
+  context.stroke();
+  
+  lastX = x;
+  lastY = y;
+}
+canvas.addEventListener("mousedown", function(event) {
+  isDrawing = true;
+  lastX = event.clientX + window.scrollX - 35;
+  lastY = event.clientY + window.scrollY - 750;
+});
+
+canvas.addEventListener("touchstart", function(event) {
+  var touch = event.touches[0];
+  isDrawing = true;
+  lastX = touch.clientX + window.scrollX - 35;
+  lastY = touch.clientY + window.scrollY - 750;
+});
+canvas.addEventListener("mouseup", function() {
+  isDrawing = false;
+});
+
+canvas.addEventListener("touchend", function() {
+  isDrawing = false;
+});
+</script><br>
+</fieldset>
