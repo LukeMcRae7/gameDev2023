@@ -30,7 +30,7 @@ input[type="radio"] {
 }
 </style>
 
-<h2 align=center>t3a10-Events-by-Luke.html</h2> 
+<h2 align=center>t1a10-Events-by-Luke.html</h2> 
 
 <a href="https://way2tutorial.com/html/html5_events_handler_list.php">
  Good reference to HTML Events</a> <br>
@@ -98,6 +98,7 @@ function updateValue() {
 <fieldset><legend>Canvas: </legend>
 <script>
   var brushColor = "black";
+  var brushSize = 10;
 </script>
 Select Color: (click one)
 
@@ -106,6 +107,7 @@ Select Color: (click one)
   if (document.getElementById('blackRadio').checked) {
     brushColor = 'black';
     document.getElementById('blackLabel').style.borderWidth = '2px';
+    document.getElementById('whiteLabel').style.borderWidth = '0px';
     document.getElementById('redLabel').style.borderWidth = '0px';
     document.getElementById('blueLabel').style.borderWidth = '0px';
     document.getElementById('greenLabel').style.borderWidth = '0px';
@@ -113,12 +115,28 @@ Select Color: (click one)
 }">
 <label for="blackRadio" id=blackLabel style="border: 2px solid white;background-color: black;color:#fff">⠀⠀⠀⠀⠀</label>
 
+
+⠀
+
+<input type="radio" id="whiteRadio" name="colorRadio" value="white" onchange="{
+  if (document.getElementById('whiteRadio').checked) {
+    brushColor = 'white';
+    document.getElementById('blackLabel').style.borderWidth = '0px';
+    document.getElementById('whiteLabel').style.borderWidth = '2px';
+    document.getElementById('redLabel').style.borderWidth = '0px';
+    document.getElementById('blueLabel').style.borderWidth = '0px';
+    document.getElementById('greenLabel').style.borderWidth = '0px';
+  }
+}">
+<label for="whiteRadio" id=whiteLabel style="border: 0px solid rgb(184, 184, 184);background-color: white;color:#fff">⠀⠀⠀⠀⠀</label>
+
 ⠀
 
 <input type="radio" id="redRadio" name="colorRadio" value="red" onchange="{
   if (document.getElementById('redRadio').checked) {
     brushColor = 'red';
     document.getElementById('blackLabel').style.borderWidth = '0px';
+    document.getElementById('whiteLabel').style.borderWidth = '0px';
     document.getElementById('redLabel').style.borderWidth = '2px';
     document.getElementById('blueLabel').style.borderWidth = '0px';
     document.getElementById('greenLabel').style.borderWidth = '0px';
@@ -132,6 +150,7 @@ Select Color: (click one)
   if (document.getElementById('blueRadio').checked) {
     brushColor = 'blue';
     document.getElementById('blackLabel').style.borderWidth = '0px';
+    document.getElementById('whiteLabel').style.borderWidth = '0px';
     document.getElementById('redLabel').style.borderWidth = '0px';
     document.getElementById('blueLabel').style.borderWidth = '2px';
     document.getElementById('greenLabel').style.borderWidth = '0px';
@@ -145,6 +164,7 @@ Select Color: (click one)
   if (document.getElementById('greenRadio').checked) {
     brushColor = 'green';
     document.getElementById('blackLabel').style.borderWidth = '0px';
+    document.getElementById('whiteLabel').style.borderWidth = '0px';
     document.getElementById('redLabel').style.borderWidth = '0px';
     document.getElementById('blueLabel').style.borderWidth = '0px';
     document.getElementById('greenLabel').style.borderWidth = '2px';
@@ -155,6 +175,18 @@ Select Color: (click one)
 
 
 
+<label for="myRange02">| Brush Width: </label>
+<input type="range" id="myRange02" value="10" min="1" max="100" onchange="updateValue(); brushSize = document.getElementById('myRange02').value">
+
+<script>
+function updateValue() {
+  var range = document.getElementById("myRange");
+  var value = document.getElementById("value");
+  value.innerHTML = range.value;
+  var hue = range.value * 1.2; 
+  range.style.background = "linear-gradient(to right, hsl(" + hue + ", 100%, 50%), hsl(" + hue + ", 100%, 70%))";
+}
+</script>
 
 
 
@@ -186,7 +218,7 @@ function draw(x, y) {
   if (!isDrawing) {
     return;
   }
-  context.lineWidth = 10;
+  context.lineWidth = brushSize;
   context.lineCap = "round";
   context.strokeStyle = brushColor;
   
@@ -218,4 +250,8 @@ canvas.addEventListener("touchend", function() {
   isDrawing = false;
 });
 </script><br>
+<input style="font-size: 30px;width: 700px;" type="button" value="Reset" onclick="{
+context.clearRect(0, 0, canvas.width, canvas.height);
+
+}">
 </fieldset>
