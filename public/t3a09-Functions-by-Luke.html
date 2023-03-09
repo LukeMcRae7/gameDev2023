@@ -1,97 +1,128 @@
 <script>
 
-function myExampleFunction(){
-   let myIn01 = parseInt(document.getElementById('myText01').value)
-   let mySum = myIn01 + myIn01
-   let myReply =  myIn01 + ' + ' + myIn01 + ' = ' + mySum
-   return myReply
+   function myExampleFunction(){
+      let myIn01 = parseInt(document.getElementById('myText01').value)
+      let mySum = myIn01 + myIn01
+      let myReply =  myIn01 + ' + ' + myIn01 + ' = ' + mySum
+      return myReply
+   
+   }
+   function generateString(){
+      let myString01 = Math.random().toString().substr(2, 10)
+   let mySpacedString01 = myString01.split('').map((char) => char + ' ').join('')
+      return mySpacedString01
+   }
+   function calculateAverage(myString02) {
+     let numbers = myString02.split(" ").map(Number);
+     let sum = 0;
+     for (let i = 0; i < 10; i++) {
+       sum += numbers[i];
+     }
+     let average = sum / 10;
+     return average;
+   }
 
-}
-function generateString(){
-   let myString01 = Math.random().toString().substr(2, 10)
-let mySpacedString01 = myString01.split('').map((char) => char + ' ').join('')
-   return mySpacedString01
-}
-function calculateAverage(myString02) {
-  let numbers = myString02.split(" ").map(Number);
-  let sum = 0;
-  for (let i = 0; i < 10; i++) {
-    sum += numbers[i];
-  }
-  let average = sum / 10;
-  return average;
-}
-</script>
+   function calculateSum(myString02) {
+     let numbers = myString02.split(" ").map(Number);
+     let sum = 0;
+     for (let i = 0; i < 10; i++) {
+       sum += numbers[i];
+     }
+     return sum;
+   }
 
-Version 0.7.0
-<style>
-   input[type="button"] {
-background-color: #808080;
-color: white;
-padding: 5px 5px;
-border:100px #333;
-border-radius: 5px;
-font-size: 15px;
-}
-           input[type="button"]:hover {
-background-color: #707070;
-cursor: pointer;
-}
-  :root {
---background-color: #333;
---text-color: #fff;
-}
-body {
-background-color: var(--background-color);
-color: var(--text-color);
-font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
-padding: 1em;
-}
-a {
-color: #5794ff;
-}
-</style>
-<h2 align=center>t1a09-Functions-by-Luke.html</h2>
+   function calculateProduct(myString02) {
+     let numbers = myString02.split(" ").map(Number);
+     let product = 1;
+     for (let i = 0; i < 10; i++) {
+      product *= numbers[i];
+     }
+     return product;
+   }
 
-<a href="https://www.w3schools.com/js/js_functions.asp">Good reference to Javascript functions</a><br>
-
-Functions are used to sensibly organize code. Then they are "Called" elsewhere. 
-Information can also be passed to functions (that's more advanced).
-<fieldset>
-<h4> Example Functions code</h4>
-<pre>
-function myGrabNumber(){
-   return parseInt(document.getElementById('myText01').value)
-}
-</pre>
-
-<h4> Example working code</h4>
-
-
-<input type=text id="myText01" value="3"><br>
-
-<input type=button value="Function Example" onClick="{
-   document.getElementById('myDiv01').innerHTML = myExampleFunction()
-}">
-
-<div id="myDiv01">...</div>
-</fieldset>
-
-
+   </script>
+   
+   Version 0.7.0
+   <style>
+      input[type="button"] {
+   background-color: #808080;
+   color: white;
+   padding: 5px 5px;
+   border:100px #333;
+   border-radius: 5px;
+   font-size: 15px;
+   }
+              input[type="button"]:hover {
+   background-color: #707070;
+   cursor: pointer;
+   }
+     :root {
+   --background-color: #333;
+   --text-color: #fff;
+   }
+   body {
+   background-color: var(--background-color);
+   color: var(--text-color);
+   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+   padding: 1em;
+   }
+   a {
+   color: #5794ff;
+   }
+   </style>
+   <h2 align=center>t1a09-Functions-by-Luke.html</h2>
+   
+   <a href="https://www.w3schools.com/js/js_functions.asp">Good reference to Javascript functions</a><br>
+   
+   Functions are used to sensibly organize code. Then they are "Called" elsewhere. 
+   Information can also be passed to functions (that's more advanced).
+   <fieldset>
+   <h4> Example Functions code</h4>
+   <pre>
+   function myGrabNumber(){
+      return parseInt(document.getElementById('myText01').value)
+   }
+   </pre>
+   
+   <h4> Example working code</h4>
+   
+   
+   <input type=text id="myText01" value="3"><br>
+   
+   <input type=button value="Function Example" onClick="{
+      document.getElementById('myDiv01').innerHTML = myExampleFunction()
+   }">
+   
+   <div id="myDiv01">...</div>
+   </fieldset>
+   
+   
+   <br>
+   
+   
+   
+   <fieldset>
+      Randomly generate a string of 10 numbers then calculate the average, sum, or product <i>(Note: Product will be zero if the string contains any zeroes)</i><br><br>
+   <input type=button value="generateString()" onClick="{
+      document.getElementById('myDiv02').innerHTML = generateString()
+   }">
+   <div id="myDiv02">...</div>
+   <br>
+   <input type=button value="calculateAverage(myString02)" onClick="{
+   let myString02 = document.getElementById('myDiv02').innerHTML
+   document.getElementById('myDiv03').innerHTML = 'The average is: ' + calculateAverage(myString02)
+   }">
+   <div id="myDiv03">...</div>
 <br>
-
-
-
-<fieldset>
-   Randomly generate a string of 10 numbers then calculate the average<br><br>
-<input type=button value="generateString()" onClick="{
-   document.getElementById('myDiv02').innerHTML = generateString()
-}">
-<div id="myDiv02">...</div>
+   <input type=button value="calculateSum(myString02)" onClick="{
+      let myString02 = document.getElementById('myDiv02').innerHTML
+      document.getElementById('myDiv04').innerHTML = 'The sum is: ' + calculateSum(myString02)
+      }">
+      <div id="myDiv04">...</div>
 <br>
-<input type=button value="calculateAverage(myString02)" onClick="{
-let myString02 = document.getElementById('myDiv02').innerHTML
-document.getElementById('myDiv03').innerHTML = 'The average is: ' + calculateAverage(myString02)
-}">
-<div id="myDiv03">...</div>
-</fieldset>
+      <input type=button value="calculateProduct(myString02)" onClick="{
+         let myString02 = document.getElementById('myDiv02').innerHTML
+         document.getElementById('myDiv05').innerHTML = 'The product is: ' + calculateProduct(myString02)
+         }">
+         <div id="myDiv05">...</div>
+   </fieldset>
