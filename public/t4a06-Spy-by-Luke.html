@@ -19,13 +19,13 @@
 <textarea id="myArea02" rows=4 cols=70></textarea><br> 
 
 <input type=button value="decrypt" onclick="{
-   let myTemp = ''
-   myString = document.getElementById('myArea02').value.toLowerCase().split('')
-   for (let myLoop=0;   myLoop < myString.length; myLoop++){
-      myTemp = myString[myLoop]
-      if (myString[myLoop] == 'f') {myTemp  = 'e'} 
-      if (myString[myLoop] == 'i') {myTemp  = 'h'} 
-      myString[myLoop] = myTemp
+   let myTemp02 = ''
+   myString02 = document.getElementById('myArea02').value.toLowerCase().split('')
+   for (let myLoop=0;   myLoop < myString02.length; myLoop++){
+      myTemp = myString02[myLoop]
+      if (myString02[myLoop] == 'f') {myTemp02  = 'e'} 
+      if (myString02[myLoop] == 'i') {myTemp02  = 'h'} 
+      myString02[myLoop] = myTemp02
    }
    document.getElementById('myArea03').value = myString.join('')
 }"><br><br>
