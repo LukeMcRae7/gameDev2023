@@ -1,34 +1,136 @@
-<h1 align=center>t2a06-spy-name.html</h1>
-<textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br> 
+<style>
+   input[type="button"] {
+background-color: #808080;
+color: white;
+padding: 5px 5px;
+border:100px #333;
+border-radius: 5px;
+font-size: 15px;
+}
+           input[type="button"]:hover {
+background-color: #707070;
+cursor: pointer;
+}
+  :root {
+--background-color: #282828;
+--text-color: #fff;
+}
+textarea {
+   background-color: black;
+   color: rgb(11, 185, 11);
+   font-family: 'monospace';
+   font-size: 20px;
+   resize: none;
+}
+body {
+background-color: var(--background-color);
+color: var(--text-color);
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+padding: 1em;
+}
+a {
+color: #5794ff;
+}
+</style>
+<h1 align=center>t2a06-Spy-by-Luke.html</h1>
+<fieldset style="border-color: #777777"><legend style="color: #aaaaaa">Letter shift: </legend>
 
+<textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br> 
+<br>
 
 <input type=button value="encrypt" onclick="{
    let myTemp = ''
    myString = document.getElementById('myArea01').value.toLowerCase().split('')
    for (let myLoop=0;   myLoop < myString.length; myLoop++){
       myTemp = myString[myLoop]
-      if (myString[myLoop] == 'e') {myTemp  = 'f'} 
-      if (myString[myLoop] == 'h') {myTemp  = 'i'} 
-      myString[myLoop] = myTemp
+    if (myString[myLoop] == 'a') {myString[myLoop] = 'b';}
+    else if (myString[myLoop] == 'b') {myString[myLoop] = 'c';}
+    else if (myString[myLoop] == 'c') {myString[myLoop] = 'd';}
+    else if (myString[myLoop] == 'd') {myString[myLoop] = 'e';}
+    else if (myString[myLoop] == 'e') {myString[myLoop] = 'f';}
+    else if (myString[myLoop] == 'f') {myString[myLoop] = 'g';}
+    else if (myString[myLoop] == 'g') {myString[myLoop] = 'h';}
+    else if (myString[myLoop] == 'h') {myString[myLoop] = 'i';}
+    else if (myString[myLoop] == 'i') {myString[myLoop] = 'j';}
+    else if (myString[myLoop] == 'j') {myString[myLoop] = 'k';}
+    else if (myString[myLoop] == 'k') {myString[myLoop] = 'l';}
+    else if (myString[myLoop] == 'l') {myString[myLoop] = 'm';}
+    else if (myString[myLoop] == 'm') {myString[myLoop] = 'n';}
+    else if (myString[myLoop] == 'n') {myString[myLoop] = 'o';}
+    else if (myString[myLoop] == 'o') {myString[myLoop] = 'p';}
+    else if (myString[myLoop] == 'p') {myString[myLoop] = 'q';}
+    else if (myString[myLoop] == 'q') {myString[myLoop] = 'r';}
+    else if (myString[myLoop] == 'r') {myString[myLoop] = 's';}
+    else if (myString[myLoop] == 's') {myString[myLoop] = 't';}
+    else if (myString[myLoop] == 't') {myString[myLoop] = 'u';}
+    else if (myString[myLoop] == 'u') {myString[myLoop] = 'v';}
+    else if (myString[myLoop] == 'v') {myString[myLoop] = 'w';}
+    else if (myString[myLoop] == 'w') {myString[myLoop] = 'x';}
+    else if (myString[myLoop] == 'x') {myString[myLoop] = 'y';}
+    else if (myString[myLoop] == 'y') {myString[myLoop] = 'z';}
+    else if (myString[myLoop] == 'z') {myString[myLoop] = 'a';}
    }
    document.getElementById('myArea02').value = myString.join('')
 }"><br><br>
 
 
 
-<textarea id="myArea02" rows=4 cols=70></textarea><br> 
+<textarea id="myArea02" rows=4 cols=70></textarea><br><br>
 
 <input type=button value="decrypt" onclick="{
    let myTemp = ''
    myString = document.getElementById('myArea02').value.toLowerCase().split('')
    for (let myLoop=0;   myLoop < myString.length; myLoop++){
       myTemp = myString[myLoop]
-      if (myString[myLoop] == 'f') {myTemp  = 'e'} 
-      if (myString[myLoop] == 'i') {myTemp  = 'h'} 
-      myString[myLoop] = myTemp
+    if (myString[myLoop] == 'c') {myString[myLoop] = 'b';}
+    else if (myString[myLoop] == 'd') {myString[myLoop] = 'c';}
+    else if (myString[myLoop] == 'e') {myString[myLoop] = 'd';}
+    else if (myString[myLoop] == 'f') {myString[myLoop] = 'e';}
+    else if (myString[myLoop] == 'g') {myString[myLoop] = 'f';}
+    else if (myString[myLoop] == 'h') {myString[myLoop] = 'g';}
+    else if (myString[myLoop] == 'i') {myString[myLoop] = 'h';}
+    else if (myString[myLoop] == 'j') {myString[myLoop] = 'i';}
+    else if (myString[myLoop] == 'k') {myString[myLoop] = 'j';}
+    else if (myString[myLoop] == 'l') {myString[myLoop] = 'k';}
+    else if (myString[myLoop] == 'm') {myString[myLoop] = 'l';}
+    else if (myString[myLoop] == 'n') {myString[myLoop] = 'm';}
+    else if (myString[myLoop] == 'o') {myString[myLoop] = 'n';}
+    else if (myString[myLoop] == 'p') {myString[myLoop] = 'o';}
+    else if (myString[myLoop] == 'q') {myString[myLoop] = 'p';}
+    else if (myString[myLoop] == 'r') {myString[myLoop] = 'q';}
+    else if (myString[myLoop] == 's') {myString[myLoop] = 'r';}
+    else if (myString[myLoop] == 't') {myString[myLoop] = 's';}
+    else if (myString[myLoop] == 'u') {myString[myLoop] = 't';}
+    else if (myString[myLoop] == 'v') {myString[myLoop] = 'u';}
+    else if (myString[myLoop] == 'w') {myString[myLoop] = 'v';}
+    else if (myString[myLoop] == 'x') {myString[myLoop] = 'w';}
+    else if (myString[myLoop] == 'y') {myString[myLoop] = 'x';}
+    else if (myString[myLoop] == 'z') {myString[myLoop] = 'y';}
+    else if (myString[myLoop] == 'a') {myString[myLoop] = 'z';}
+    else if (myString[myLoop] == 'b') {myString[myLoop] = 'a';}
    }
    document.getElementById('myArea03').value = myString.join('')
 }"><br><br>
 
 
-<textarea id="myArea03" rows=4 cols=70></textarea><br> 
+<textarea id="myArea03" rows=4 cols=70></textarea>
+</fieldset>
+<br><br>
+<fieldset style="border-color: #777777">
+   <legend style="color: #aaaaaa">Base64: </legend>
+   <textarea id="myArea04" rows=4 cols=70>I'm good how are you</textarea><br> 
+   <br>
+   <input type=button value="encrypt" onclick="{
+       let myString = document.getElementById('myArea04').value;
+       let myResult = btoa(myString);
+       document.getElementById('myArea05').value = myResult;
+   }"><br><br>
+
+   <textarea id="myArea05" rows=4 cols=70></textarea><br><br>
+   <input type=button value="decrypt" onclick="{
+       let myString = document.getElementById('myArea05').value;
+       let myResult = atob(myString);
+       document.getElementById('myArea06').value = myResult;
+   }"><br><br>
+      <textarea id="myArea06" rows=4 cols=70></textarea><br>
+</fieldset>
