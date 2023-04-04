@@ -1,27 +1,105 @@
-<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg">
-
+<body id="myBody" style="background-repeat:repeat; background-size: 3500px" background="myBackground01.jpg">
+<style>
+                input[type="button"] {
+        background-color: #5e5e5e;
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+      }
+      button {
+        background-color: #5e5e5e;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+      }
+</style>
 <script>
    let myGlobalX = 0
-   let myClock
+   let myGlobalY = 0
+   let myClock01
+   let myClock02
 </script>
 
-<input id="myButton01" type=button value="background move left" onclick="{
+<div id="myButton01" style="color: white; background-color: #5e5e5e; text-align: center; font-size: 14px; height: 70px; width: 70px; position: fixed; top: 580px; left: 100px"><br/>Background Controls</div>
+
+<input id="myButton02" style="font-size: 40px; width: 70px; height: 70px; position:fixed; top: 580px; left: 25px" type=button value="<" onclick="{
   myTemp = '100px 0px'
   myGlobalX -= 5
-  myTemp =  myGlobalX + 'px 0px'
+  myTemp =  myGlobalX + 'px ' + myGlobalY + 'px'
   document.getElementById('myBody').style.backgroundPosition =myTemp
 }">
 
-<input type=button value="Auto Background Left" onclick="{
-  clearInterval(myClock)
-  myClock = setInterval(function(){
-     document.getElementById('myButton01').click() 
-  }, 100)
-    
+<input id="myButton03" style="font-size: 40px; width: 70px; height: 70px; position: fixed; top: 580px; left: 175px" type=button value=">" onclick="{
+  myTemp = '0px 100px'
+  myGlobalX += 5
+  myTemp =  myGlobalX + 'px ' + myGlobalY + 'px'
+  document.getElementById('myBody').style.backgroundPosition =myTemp
 }">
 
-<input type=button value="Image Right" onclick="{
-  document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) + 10 + 'px'
-}"><br><br>
+<input id="myButton04" style="font-size: 40px; width: 70px; height: 70px; position: fixed; top: 655px; left: 100px" type=button value="v" onclick="{
+  myTemp = '100px 0px';
+  myGlobalY += 5;
+  myTemp = myGlobalX + 'px ' + myGlobalY + 'px';
+  document.getElementById('myBody').style.backgroundPosition = myTemp;
+}">
 
-<img id="myImage01" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="myImage01.jpg">
+<input id="myButton05" style="font-size: 40px; width: 70px; height: 70px; position: fixed; top: 505px; left: 100px" type=button value="^" onclick="{
+  myTemp = '100px 0px';
+  myGlobalY -= 5;
+  myTemp = myGlobalX + 'px ' + myGlobalY + 'px';
+  document.getElementById('myBody').style.backgroundPosition = myTemp;
+}">
+
+<button style="font-size: 20px; width: 70px; height: 70px; position: fixed; top: 655px; left: 25px" onclick="{
+  clearInterval(myClock01)
+  myClock01 = setInterval(function(){
+     document.getElementById('myButton02').click() 
+  }, 100)
+}">Auto Left</button>
+
+<button style="font-size: 20px; width: 70px; height: 70px; position: fixed; top: 655px; left: 175px" onclick="{
+  clearInterval(myClock01)
+  myClock01 = setInterval(function(){
+     document.getElementById('myButton03').click() 
+  }, 100)
+}">Auto Right</button>
+
+
+
+
+<div id="myButton06" style="color: white; background-color: #5e5e5e; text-align: center; font-size: 16px; height: 70px; width: 70px; position: fixed; top: 580px; left: 1400px"><br/>Image Controls</div>
+
+<input id="myButton07" style="font-size: 40px; width: 70px; height: 70px; position:fixed; top: 580px; left: 1325px" type=button value="<" onclick="{
+  document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) - 10 + 'px'
+}">
+
+<input id="myButton08" style="font-size: 40px; width: 70px; height: 70px; position: fixed; top: 580px; left: 1475px" type=button value=">" onclick="{
+  document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) + 10 + 'px'
+}">
+
+<input id="myButton09" style="font-size: 40px; width: 70px; height: 70px; position: fixed; top: 655px; left: 1400px" type=button value="v" onclick="{
+  document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) + 10 + 'px'
+}">
+
+<input id="myButton10" style="font-size: 40px; width: 70px; height: 70px; position: fixed; top: 505px; left: 1400px" type=button value="^" onclick="{
+  document.getElementById('myImage01').style.top = parseInt(document.getElementById('myImage01').style.top) - 10 + 'px'
+}">
+
+<button style="font-size: 20px; width: 70px; height: 70px; position: fixed; top: 655px; left: 1325px" onclick="{
+  clearInterval(myClock02)
+  myClock02 = setInterval(function(){
+     document.getElementById('myButton07').click() 
+  }, 100)
+}">Auto Left</button>
+
+<button style="font-size: 20px; width: 70px; height: 70px; position: fixed; top: 655px; left: 1475px" onclick="{
+  clearInterval(myClock02)
+  myClock02 = setInterval(function(){
+     document.getElementById('myButton08').click() 
+  }, 100)
+}">Auto Right</button>
+
+<img id="myImage01" style="position:relative; width:200px; top:0px; left:0px;" src="myImage01.png">
