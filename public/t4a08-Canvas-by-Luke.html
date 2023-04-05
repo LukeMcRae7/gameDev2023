@@ -217,14 +217,14 @@ You use loops and variables to make fast fancy drawings <br><br>
  
  canvas.addEventListener("mousemove", function(event) {
    var x = event.clientX + window.scrollX - 25;
-   var y = event.clientY + window.scrollY - 328;
+   var y = event.clientY + window.scrollY - 348;
    draw(x, y);
  });
  
  canvas.addEventListener("touchmove", function(event) {
    var touch = event.touches[0];
    var x = touch.clientX + window.scrollX - 25;
-   var y = touch.clientY + window.scrollY - 328;
+   var y = touch.clientY + window.scrollY - 348;
    draw(x, y);
  });
  function draw(x, y) {
@@ -246,14 +246,14 @@ You use loops and variables to make fast fancy drawings <br><br>
  canvas.addEventListener("mousedown", function(event) {
    isDrawing = true;
    lastX = event.clientX + window.scrollX - 25;
-   lastY = event.clientY + window.scrollY - 328;
+   lastY = event.clientY + window.scrollY - 348;
  });
  
  canvas.addEventListener("touchstart", function(event) {
    var touch = event.touches[0];
    isDrawing = true;
    lastX = touch.clientX + window.scrollX  - 25;
-   lastY = touch.clientY + window.scrollY - 328;
+   lastY = touch.clientY + window.scrollY - 348;
  });
  canvas.addEventListener("mouseup", function() {
    isDrawing = false;
