@@ -1,0 +1,102 @@
+<!--- TAXES
+Input: Wage ___ per hour
+hours ____
+tax rate ____
+button calculate tax
+Output day total, __ Tax, ___ take home
+20 days Month ""
+200 days Year ""-->
+Version 1.0.0 <br>
+<style>
+   input[type="button"] {
+background-color: #808080;
+color: white;
+padding: 5px 5px;
+border:10px #333;
+border-radius: 5px;
+font-size: 22px;
+}
+           input[type="button"]:hover {
+background-color: #575757;
+cursor: pointer;
+}
+  :root {
+--background-color: #333;
+--text-color: #fff;
+}
+body {
+    line-height: 1.5;
+background-color: var(--background-color);
+color: var(--text-color);
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+padding: 1em;
+}
+a {
+color: #5794ff;
+}
+input[type="radio"] {
+  display: none;
+}
+</style>
+
+<script>
+    var total;
+    var taxTotal;
+    
+    function setLabels() {
+        document.getElementById('myLabel01').innerHTML = "Day:";
+        document.getElementById('myLabel02').innerHTML = "Month (assuming 20 days worked):";
+        document.getElementById('myLabel03').innerHTML = "Year (assuming 200 days worked):";
+        document.getElementById('myFieldset01').style.borderWidth = '2px';
+        document.getElementById('myFieldset02').style.borderWidth = '2px';
+        document.getElementById('myFieldset03').style.borderWidth = '2px';
+    }
+    
+    function calcTotal() {
+        var wage = document.getElementById('myWage').value;
+        var hours = document.getElementById('myHours').value;
+        total = wage * hours;
+        document.getElementById('myTotal01').innerHTML = "Total pay: $" + total;
+        document.getElementById('myTotal02').innerHTML = "Total pay: $" + (total * 20);
+        document.getElementById('myTotal03').innerHTML = "Total pay: $" + (total * 200);
+    }
+    
+    function calcTax() {
+        var tax = document.getElementById('myTax').value;
+        taxTotal = total * (tax / 100);
+        document.getElementById('myTax01').innerHTML = "Total tax: $" + taxTotal;
+        document.getElementById('myTax02').innerHTML = "Total tax: $" + (taxTotal * 20);
+        document.getElementById('myTax03').innerHTML = "Total tax: $" + (taxTotal * 200);
+    }
+    
+    function calcTakeHome() {
+        var takeHome = total - taxTotal;
+        document.getElementById('myTakeHome01').innerHTML = "Take home: $" + takeHome;
+        document.getElementById('myTakeHome02').innerHTML = "Take home: $" + (takeHome * 20);
+        document.getElementById('myTakeHome03').innerHTML = "Take home: $" + (takeHome * 200);
+    }
+    </script>
+    
+
+<h2 align=center>Taxes by Luke</h2>
+<fieldset style="width: 300px;">
+<table border=0 style="font-size: 20px;">
+    <tr><td>Wage:</td><td>$<input id="myWage" style="width: 40px;" type="text" value=""></td><td>per hour</td>
+    <tr><td>Hours:</td><td>⠀<input id="myHours" style="width: 40px;" type="text" value=""></td><td>hours daily</td>
+    <tr><td>Tax rate:</td><td>⠀<input id="myTax" style="width: 40px;" type="text" value=""></td><td>%</td>
+    </table><br>
+<input type="button" value="Calculate Tax" onclick="{
+setLabels();
+calcTotal();
+calcTax();
+calcTakeHome();
+}"></fieldset>
+<br><br>
+<div id="myLabel01" value="" style="font-weight: bold; font-size: 25px;"></div><fieldset id="myFieldset01" style="width: 150px; border-width: 0px;">
+<div id="myTotal01" value="" style="color:#b9b9b9"></div> <div id="myTax01" value="" style="color:#b9b9b9"> </div><div id="myTakeHome01" value="" style="font-size: 20px;"></div></fieldset><br><br>
+
+<div id="myLabel02" value="" style="font-weight: bold; font-size: 25px;"></div><fieldset id="myFieldset02" style="width: 150px; border-width: 0px;">
+<div id="myTotal02" value="" style="color:#b9b9b9"></div> <div id="myTax02" value="" style="color:#b9b9b9"> </div><div id="myTakeHome02" value="" style="font-size: 20px;"></div></fieldset><br><br>
+
+<div id="myLabel03" value="" style="font-weight: bold; font-size: 25px;"></div><fieldset id="myFieldset03" style="width: 150px; border-width: 0px;">
+<div id="myTotal03" value="" style="color:#b9b9b9"></div> <div id="myTax03" value="" style="color:#b9b9b9"> </div><div id="myTakeHome03" value="" style="font-size: 20px;"></div></fieldset><br><br>
