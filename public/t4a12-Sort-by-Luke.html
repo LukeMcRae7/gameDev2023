@@ -1,29 +1,90 @@
-<h1 align=center>t2a12 Sort by Fred</h1>
+<style>
+   input[type="button"] {
+background-color: #808080;
+color: white;
+padding: 5px 5px;
+border:10px #333;
+border-radius: 5px;
+font-size: 22px;
+}
+           input[type="button"]:hover {
+background-color: #575757;
+cursor: pointer;
+}
+  :root {
+--background-color: #333;
+--text-color: #fff;
+}
+body {
+    line-height: 1.5;
+background-color: var(--background-color);
+color: var(--text-color);
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+padding: 1em;
+}
+a {
+color: #5794ff;
+}
+input[type="radio"] {
+  display: none;
+}
+.card {
+  display:inline-block;
+  border: 1px solid black;
+  padding: 3px;
+  margin: 5px;
+  background-color: rgb(117, 117, 117);
+  width: 25px;
+  height: 40px;
+  text-align: center;
+vertical-align: middle;
+}
+</style>
 
+<h1 align=center>t2a12 Sort by Luke</h1>
+<fieldset style="width: 300px">
 <script>
-   let myMax = 3      // 52 when working
+   let myMax = 36
    let myCards = new Array(myMax)  
+   let myMax02 = 10
+
+
+   function myShow() {
+  let myTemp = '';
+  for (let myLoop = 0; myLoop < myMax; myLoop++) {
+    myTemp += '<div class="card">' + myCards[myLoop] + '</div>';
+  }
+  document.getElementById('myDiv01').innerHTML = myTemp;
+}
+function setMax() {
+      myMax = document.getElementById('myNum01').value;
+      myCards = new Array(myMax);
+      myMax02 = document.getElementById('myNum02').value;
+      myMax02++
+   }
 </script>
-
+Amount of Cards:⠀⠀<input id="myNum01" type="number" value="36" style="width: 80px; height: 35px; text-align: center; font-size: 20px"><br>
+Max Value of Cards: <input id="myNum02" type="number" value="9" style="width: 80px; height: 35px; text-align: center; font-size: 20px"><br><br>
 <input type=button value="Set Random" onclick="{
+   setMax()
   for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-     myCards[myLoop] = Math.floor(Math.random()*10)
+     myCards[myLoop] = Math.floor(Math.random()*myMax02)
   }
+  myShow()
 }">
-
-<input type=button value="Show" onclick="{
-  let myTemp = ''
-  for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-     myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
-  }
-   document.getElementById('myDiv01').innerHTML = myTemp
-}">
-
-<input type=button value="Sort" onclick="{
+<input type=button value="Sort Cards" onclick="{
   let myTemp = 0
   for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
-     myCards[myLoop] = 0 // you do this stuff
+  if(myCards[myLoop] > myCards[myLoop + 1]){
+    myTemp = myCards[myLoop + 1];
+    myCards[myLoop + 1] = myCards[myLoop];
+    myCards[myLoop] = myTemp;
+    if(myLoop > 0) {
+      myLoop -= 2;
+    }
   }
+}
+myShow()
 }">
-
-<dir id="myDiv01"></div>
+</fieldset>
+<div id="myDiv01"></div>
