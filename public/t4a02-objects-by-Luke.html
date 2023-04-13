@@ -1,7 +1,33 @@
-
+<style>
+  input[type="button"] {
+background-color: #808080;
+color: white;
+padding: 5px 5px;
+border:100px #333;
+border-radius: 5px;
+font-size: 15px;
+}
+          input[type="button"]:hover {
+background-color: #707070;
+cursor: pointer;
+}
+ :root {
+--background-color: #333;
+--text-color: #fff;
+}
+body {
+background-color: var(--background-color);
+color: var(--text-color);
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+padding: 1em;
+}
+a {
+color: #5794ff;
+}
+</style>
 Version 0.0.1
 
-<h2 align=center>t2a02-objects-by-Fred.html</h2>
+<h2 align=center>t4a02-objects-by-Luke.html</h2>
 
 <a href="">Good reference to Javascript Objects</a><br>
 
@@ -18,9 +44,9 @@ let myPerson = {
 
 </pre>
 
-<h4> Example working Objects code</h4>
+<fieldset style="width: 350px"><legend>Example working Objects code</legend>
 
-Nothing: <input type=text id="myText01" value="Useless at the moment"><br>
+Something: <input type=text id="myText01" value="Does something"><br>
 
 
 <input type=button value="Example Object Set and Show" onClick="{
@@ -29,19 +55,47 @@ Nothing: <input type=text id="myText01" value="Useless at the moment"><br>
     'firstName' : 'John',
     'lastName'  : 'Doe',
     'age'       :  50,
-    'eyeColor'  : 'blue'
+    'eyeColor'  : 'blue',
+    'phrase'    : document.getElementById('myText01').value
   }
 
    document.getElementById('myDiv01').innerHTML = '<br>myPerson Object has properties: <br>'
    document.getElementById('myDiv01').innerHTML += 'firstName: ' + myPerson.firstName + '<br>'
-   document.getElementById('myDiv01').innerHTML += 'You do the others  <br> ' 
+   document.getElementById('myDiv01').innerHTML += 'lastName: ' + myPerson.lastName + '<br>'
+   document.getElementById('myDiv01').innerHTML += 'age: ' + myPerson.age + '<br>'
+   document.getElementById('myDiv01').innerHTML += 'eyeColor: ' + myPerson.eyeColor + '<br>'
+   document.getElementById('myDiv01').innerHTML += 'phrase (text): ' + myPerson.phrase + '<br>'
 
 }">
 
 <div id="myDiv01">...</div>
-
+</fieldset>
 
 <br>
 
-
-
+<fieldset style="width: 700px"><legend>Objects with input</legend>
+  firstName: <input type=text id="myText03" value="Dave" style="width: 100px">  lastName: <input type=text id="myText04" value="Davidson" style="width: 100px"><br>
+  age: <input type=text id="myText05" value="35"style="width: 50px"> <br> eyeColor: <input type=text id="myText06" value="green" style="width: 50px"><br>
+  phrase: <input type=text id="myText07" value="Hello!"><br>
+  
+  
+  <input type=button value="Show" onClick="{
+    let myPerson02 = {   
+      'firstName' : document.getElementById('myText03').value,
+      'lastName'  : document.getElementById('myText04').value,
+      'age'       : document.getElementById('myText05').value,
+      'eyeColor'  : document.getElementById('myText06').value,
+      'phrase'    : document.getElementById('myText07').value
+    }
+  
+    document.getElementById('myDiv02').innerHTML = '<br> myPerson02 Object has properties: <br>'
+    document.getElementById('myDiv02').innerHTML += 'firstName: ' + myPerson02.firstName + '<br>'
+    document.getElementById('myDiv02').innerHTML += 'lastName: ' + myPerson02.lastName + '<br>'
+    document.getElementById('myDiv02').innerHTML += 'age: ' + myPerson02.age + '<br>'
+    document.getElementById('myDiv02').innerHTML += 'eyeColor: ' + myPerson02.eyeColor + '<br>'
+    document.getElementById('myDiv02').innerHTML += 'phrase: ' + myPerson02.phrase + '<br>'
+  
+  }">
+  
+  <div id="myDiv02">...</div>
+  </fieldset>
