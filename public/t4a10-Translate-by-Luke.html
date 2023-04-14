@@ -1,26 +1,60 @@
-
-
-
-
+<style>
+  input[type="button"] {
+background-color: #808080;
+color: white;
+padding: 5px 5px;
+border:100px #333;
+border-radius: 5px;
+font-size: 15px;
+}
+          input[type="button"]:hover {
+background-color: #707070;
+cursor: pointer;
+}
+ :root {
+--background-color: #333;
+--text-color: #fff;
+}
+body {
+background-color: var(--background-color);
+color: var(--text-color);
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+padding: 1em;
+font-size: 30px;
+align-items: center;
+text-align: center;
+}
+a {
+color: #5794ff;
+}
+</style>
 
 <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=oyyIwV53"></script>
 
 <script>
     function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,fr,de,ru', layout:google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,fr,de,ru', layout:google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: true}, 'google_translate_element');
 
     }
 </script>
+<script>let myVoice = 'Russian Female'</script>
 
+<body>
+<h1>t4a10-translate-Luke</h1>
 
-
-<h1 align=center>t2a10-translate-name</h1>
-
-<div id="google_translate_element">I really like javascript</div>
-
-
-<input  type="button" value="initilize speak" onclick="{  
-   let myVoice = 'Russian Female'
-   responsiveVoice.speak(document.getElementById('google_translate_element').innerText, myVoice, {pitch: 1, rate: 1, volume : 1})                                              
-}"><br><br>
+<div id="google_translate_element">I really like javascript</div><br>
+Pitch: <input id="myScale01" type="range" max="1.5" min="0.5" step="0.1" value="1"><br>
+Rate: <input id="myScale02" type="range" max="1.5" min="0.5" step="0.1" value="1"><br>
+Volume: <input id="myScale03" type="range" max="1.5" min="0.5" step="0.1" value="1"><br><br>
+<select id="mySelect01" style="font-size: 30px;" size="3" onChange="{
+  myVoice = document.getElementById('mySelect01').value
+ }">
+<option value='Russian Female' selected>Russian Female
+<option value='UK English Male'>UK English Male
+<option value='Polish Male'>Polish Male
+</select><br>
+<br>
+<input  type="button" style="font-size: 50px;" value="initilize speak" onclick="{  
+   responsiveVoice.speak(document.getElementById('google_translate_element').innerText, myVoice, {pitch: document.getElementById('myScale01').value, rate: document.getElementById('myScale02').value, volume : document.getElementById('myScale03').value})                                              
+  }"><br><br></body>
