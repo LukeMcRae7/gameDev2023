@@ -1,24 +1,70 @@
-<h2>t2a09-local-storage-name by Fred. Instructions:</h2>
-
-<body onload="{
-   myStorage = localStorage.getItem('myStoredText')
-   if(myStorage  != null){
-      document.getElementById('myText1').value = myStorage 
-    }
-}">
-
-<body onunload="{
-   localstorage.setItem('myStoredText',document.getElementById('myText1').value)
-}">   
-
-Text example: <input id="myText1" type=text size=70 value="" placeholder="Write here to store"><br>
-
-<input type="button" value="Store Text" onClick="{
-   localStorage.setItem('myStoredText', document.getElementById('myText1').value)
-   alert(document.getElementById('myText1').value + ' \nHas been stored')
-   document.getElementById('myText1').value = ''
-}">
-
-<input type="button" value="Retrieve Text" onClick="{
-   document.getElementById('myText1').value = localStorage.getItem('myStoredText')
-}"> 
+<style>
+    input[type="button"] {
+  background-color: #808080;
+  color: white;
+  padding: 5px 5px;
+  border:100px #333;
+  border-radius: 5px;
+  font-size: 15px;
+  }
+            input[type="button"]:hover {
+  background-color: #707070;
+  cursor: pointer;
+  }
+   :root {
+  --background-color: #333;
+  --text-color: #fff;
+  }
+  body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+  padding: 1em;
+  font-size: 30px;
+  align-items: center;
+  text-align: center;
+  }
+  a {
+  color: #5794ff;
+  }
+  </style>
+  <h2>t4a09-local-storage-Luke:</h2>
+  
+  <body onload="{
+     myStorage = localStorage.getItem('myStoredText')
+     if(myStorage  != null){
+        document.getElementById('myText1').value = myStorage 
+      }
+  }">
+  
+  <body onunload="{
+     localstorage.setItem('myStoredText',document.getElementById('myText1').value)
+  }">   
+  
+  Text example: <input id="myText1" type=text size=70 value="" placeholder="Write here to store"><br>
+  
+  <input type="button" value="Store Text" onClick="{
+     localStorage.setItem('myStoredText', document.getElementById('myText1').value)
+     alert(document.getElementById('myText1').value + ' \nHas been stored')
+     document.getElementById('myText1').value = ''
+  }">
+  
+  <input type="button" value="Retrieve Text" onClick="{
+     document.getElementById('myText1').value = localStorage.getItem('myStoredText')
+  }"> 
+<br><br>
+  <fieldset>
+        <script>
+          let myNumber = localStorage.getItem("number");
+          if (myNumber === null) {
+            myNumber = 1;
+          } else {
+            myNumber = parseInt(myNumber) * 2;
+          }
+          localStorage.setItem("number", myNumber);
+          document.getElementById('myDiv02').innerText = myNumber;
+        </script>
+        <div>This number doubles everytime the page is loaded/refreshed</div>
+        <script>        document.write("number = " + myNumber);</script>
+  </body>
+  </fieldset>
