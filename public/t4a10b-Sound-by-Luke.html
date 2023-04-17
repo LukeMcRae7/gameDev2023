@@ -2,12 +2,13 @@
     input[type="button"] {
   background-color: #808080;
   color: white;
-  padding: 5px 5px;
+  padding: 0px 0px;
   border:100px #333;
   border-radius: 5px;
-  font-size: 15px;
-  height: 40px;
-  width: 40px;
+  font-size: 55px;
+  height: 70px;
+  width: 70px;
+  vertical-align: middle;
   }
             input[type="button"]:hover {
   background-color: #707070;
@@ -32,23 +33,23 @@
   </style>
 
 
-<script> let mySound1 = new Audio('Sound1.mp3') </script>
-<script> let mySound2 = new Audio('Sound2.mp3') </script>
-<script> let mySound3 = new Audio('Sound3.mp3') </script>
-<script> let mySound4 = new Audio('Sound4.mp3') </script>
+<script> let mySound1 = new Audio('car.mp3') </script>
+<script> let mySound2 = new Audio('boom.mp3') </script>
+<script> let mySound3 = new Audio('frog.mp3') </script>
+<script> let mySound4 = new Audio('supercell.mp3') </script>
 
-<h1 align=center>T4A10b-Sounds-and-events-Luke.html</h1>
+<h1 align='center'>T4A10b-Sounds-and-events-Luke.html</h1>
 
 
-<input type=button value=🏎️ onClick="{
+<input type='button' value='🏎️' onClick="{
     mySound1.play()
 }">
-<input type=button value=sound onClick="{
+<input type='button' value='💥' onClick="{
     mySound2.play()
 }">
-<input type=button value=sound onClick="{
+<input type='button' value='🐸' onClick="{
     mySound3.play()
 }">
-<input type=button value=sound onClick="{
+<input type='button' value='🔔' onClick="{
     mySound4.play()
 }">
