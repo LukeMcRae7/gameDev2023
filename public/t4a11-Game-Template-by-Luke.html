@@ -1,20 +1,31 @@
-<h6> Version 0.0.1 </h6>
-
-<body id="myBody" style="background-repeat:repeat; background-size: 1920px" background="https://static.vecteezy.com/system/resources/previews/006/316/482/original/alien-planet-game-background-free-vector.jpg">
-
-<h1 align=center>t2a11 Game Template by Luke</h1>
-<br><br><br><br>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 1</title>
+<style>
+  .platform {
+    position: absolute;
+    background-color: #333;
+  }
+</style>
 <script>
+  // global variables here
+  let myGlobalX = 0;
+  let myClock;
+  let myInterval = 0;
+  let jumping = false;
+  let gravity = 0.6;
+  let vy = 0;
+  const moveSpeed = 7;
+  const jumpForce = -15;
+  let moveLeft = false;
+  let moveRight = false;
 
-   // global variables here
-   let myGlobalX = 0
-   let myClock
-
-
-   // global functions here
-function myHitOther(my1,my2){
-   left1   = parseInt(document.getElementById(my1).style.left)
+  // global functions here
+  function myHitOther(my1, my2) {
+    left1   = parseInt(document.getElementById(my1).style.left)
    right1  = left1 + parseInt(document.getElementById(my1).style.width)
    top1    = parseInt(document.getElementById(my1).style.top)   
    bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
@@ -28,43 +39,132 @@ function myHitOther(my1,my2){
        (top1    <=  bottom2) ){
        return true
    }
-}
+  }
 
-
-function myCheckHit(){
-   if ( myHitOther('myImg01','myImg02') ){
+  function myCheckHit() {
+    if ( myHitOther('myImg01','myImg02') ){
        alert('you lose')  
        document.getElementById('myImg01').style.left = '20px'
        location = 't2a13-keydown.html'  // go to your next level
    }
+  }
+  let grounded = false;
+  function gameLoop() {
+  let player = document.getElementById("myImg01");
+
+  if (moveLeft !== moveRight) {
+    if (moveLeft) {
+      player.style.left = parseInt(player.style.left) - moveSpeed + 'px';
+    } else if (moveRight) {
+      player.style.left = parseInt(player.style.left) + moveSpeed + 'px';
+    }
+  }
+
+  vy += gravity;
+  player.style.top = parseInt(player.style.top) + vy + "px";
+
+  checkCollisions();
+
+  myCheckHit();
+
+  requestAnimationFrame(gameLoop);
+}
 
 
-   // more if statements here like the above
+function checkCollisions() {
+  let player = document.getElementById("myImg01");
+  grounded = false;
+
+  let platforms = ['leftwall','rightwall','floor','platform1', 'platform2', 'platform3'];
+
+  for (let i = 0; i < platforms.length; i++) {
+    let platform = document.getElementById(platforms[i]);
+    let platformLeft = parseInt(platform.style.left);
+    let platformRight = platformLeft + parseInt(platform.style.width);
+    let platformTop = parseInt(platform.style.top);
+    let platformBottom = platformTop + parseInt(platform.style.height);
+
+    let playerLeft = parseInt(player.style.left);
+    let playerRight = playerLeft + parseInt(player.style.width);
+    let playerTop = parseInt(player.style.top);
+    let playerBottom = playerTop + parseInt(player.style.height);
+
+    let horizontalCollision = playerRight >= platformLeft && playerLeft <= platformRight;
+    let verticalCollision = playerBottom >= platformTop && playerTop <= platformBottom;
+
+    if (horizontalCollision && verticalCollision) {
+      let topOverlap = playerBottom - platformTop;
+      let bottomOverlap = platformBottom - playerTop;
+      let leftOverlap = playerRight - platformLeft;
+      let rightOverlap = platformRight - playerLeft;
+
+      let minOverlap = Math.min(topOverlap, bottomOverlap, leftOverlap, rightOverlap);
+
+    if (minOverlap === topOverlap) {
+      player.style.top = platformTop - parseInt(player.style.height) + 'px';
+      vy = 0;
+      jumping = false;
+      grounded = true;
+    } else if (minOverlap === bottomOverlap) {
+        player.style.top = platformBottom + 'px';
+        vy = 1;
+      } else if (minOverlap === leftOverlap) {
+        player.style.left = platformLeft - parseInt(player.style.width) + 'px';
+      } else if (minOverlap === rightOverlap) {
+        player.style.left = platformRight + 'px';
+      }
+
+      break;
+    }
+  }
+}
 
 
+function handleKeydown(event) {
+  let myKey = event.key;
+  if (myKey === 'd') {
+    moveRight = true;
+  } else if (myKey === 'a') {
+    moveLeft = true;
+  } else if (myKey === ' ' && !jumping && grounded) {
+    jumping = true;
+    vy = jumpForce;
+  }
+}
 
-}  // end of myCheckHit()
+  function handleKeyup(event) {
+    let myKey = event.key;
+    if (myKey === 'd') {
+      moveRight = false;
+    } else if (myKey === 'a') {
+      moveLeft = false;
+    }
+  }
 
-
+  window.addEventListener("keydown", handleKeydown);
+  window.addEventListener("keyup", handleKeyup);
 </script>
-
-<img id="myImg01" style="position:absolute; width:100px; height:80px; top:0px; left:50px;"  src="https://answers.unity.com/storage/temp/157590-blockpiece.png">
-<img id="myImg02" style="position:absolute; width:100px; height:80px; top:0px; left:250px;" src="https://answers.unity.com/storage/temp/157590-blockpiece.png">
-
-<input type=button value="Auto Background Left" onclick="{
-  clearInterval(myClock)
-  let myTemp = '100px 0px'
-  myClock = setInterval(function(){
-      myGlobalX -= 5
-      myTemp =  myGlobalX + 'px 0px'
-      document.getElementById('myBody').style.backgroundPosition = myTemp
-  }, 100)
-    
+</head>
+<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg" onload="{
+  document.getElementById('myImg01').style.left = '400px';
+  document.getElementById('myImg01').style.top = '0px';
+  gameLoop();
 }">
 
+  <br><br><br><br>
 
-<input type=button value="Image Right Fast Button" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
-  document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
-  myCheckHit()     // checks for all collisions
-}"><br><br>
+  <img id="myImg01" style="position:absolute; width:50px; height:80px; top:0px; left:400px;" src="myImage01.png">
+  <img id="myImg02" style="position:absolute; width:100px; height:80px; top:0px; left:250px;" src="myImage02.jpg">
+  <div id="leftwall" class="platform" style="width:20px; height:2000px; top:300px; left:0px;"></div>
+<div id="rightwall" class="platform" style="width:20px; height:2000px; top:300px; left:1550px;"></div>
+<div id="floor" class="platform" style="width:1550px; height:20px; top:740px; left:0px;"></div>
+  <div id="platform1" class="platform" style="width:200px; height:20px; top:300px; left:100px;"></div>
+<div id="platform2" class="platform" style="width:200px; height:20px; top:420px; left:300px;"></div>
 
+
+ <!-- clearInterval(myClock);
+  let myTemp =  myGlobalX + 'px 0px';
+ document.getElementById('myBody').style.backgroundPosition = myTemp; !-->
+  <br><br>
+</body>
+</html>
