@@ -75,7 +75,7 @@ function checkCollisions() {
   let player = document.getElementById("myImg01");
   grounded = false;
 
-  let platforms = ['leftwall','rightwall','floor','platform1', 'platform2', 'platform3'];
+  let platforms = ['platform1', 'platform2', 'platform3'];
 
   for (let i = 0; i < platforms.length; i++) {
     let platform = document.getElementById(platforms[i]);
@@ -153,18 +153,24 @@ function handleKeydown(event) {
 
   <br><br><br><br>
 
-  <img id="myImg01" style="position:absolute; width:50px; height:80px; top:0px; left:400px;" src="myImage01.png">
+  <img id="myImg01" style="position:absolute; width:100px; height:80px; top:0px; left:400px;" src="myImage01.jpg">
   <img id="myImg02" style="position:absolute; width:100px; height:80px; top:0px; left:250px;" src="myImage02.jpg">
-  <div id="leftwall" class="platform" style="width:20px; height:2000px; top:300px; left:0px;"></div>
-<div id="rightwall" class="platform" style="width:20px; height:2000px; top:300px; left:1550px;"></div>
-<div id="floor" class="platform" style="width:1550px; height:20px; top:740px; left:0px;"></div>
   <div id="platform1" class="platform" style="width:200px; height:20px; top:300px; left:100px;"></div>
 <div id="platform2" class="platform" style="width:200px; height:20px; top:420px; left:300px;"></div>
+<div id="platform3" class="platform" style="width:200px; height:20px; top:150px; left:500px;"></div>
 
 
- <!-- clearInterval(myClock);
-  let myTemp =  myGlobalX + 'px 0px';
- document.getElementById('myBody').style.backgroundPosition = myTemp; !-->
+  <input type="button" value="Auto Background Left" onclick="{
+    clearInterval(myClock);
+    let myTemp =  myGlobalX + 'px 0px';
+    document.getElementById('myBody').style.backgroundPosition = myTemp;
+  }">
+
+  <input type="button" value="Image Right Fast Button" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px';
+    myCheckHit();     // checks for all collisions
+  }">
+  <div id="gah"></div>
   <br><br>
 </body>
 </html>
