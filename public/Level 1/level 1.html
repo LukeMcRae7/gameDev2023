@@ -18,8 +18,8 @@
   let jumping = false;
   let gravity = 0.6;
   let vy = 0;
-  const moveSpeed = 7;
-  const jumpForce = -15;
+  const moveSpeed = 5;
+  const jumpForce = -13;
   let moveLeft = false;
   let moveRight = false;
   let lastMoveDirection = 'right';
@@ -58,6 +58,10 @@ const imgJumpingRight = "jumpingRight.png";
        document.getElementById('myImg01').style.left = '20px'
        location = 't2a13-keydown.html'  // go to your next level
    }
+   if ( myHitOther('myImg01','top') ){
+       document.getElementById('myImg01').style.left = '20px'
+       location = 'level 1 - 2.html'
+   }
   }
   let grounded = false;
   function gameLoop() {
@@ -89,7 +93,7 @@ function checkCollisions() {
   let player = document.getElementById("myImg01");
   grounded = false;
 
-  let platforms = ['platform1','platform2','platform3','platform4', 'platform5'];
+  let platforms = ['platform1','platform2','platform3','platform4', 'platform5', 'platform6', 'platform7', 'platform8', 'platform9', 'platform10', 'platform11', 'platform12', 'platform13', 'platform14'];
 
   for (let i = 0; i < platforms.length; i++) {
     let platform = document.getElementById(platforms[i]);
@@ -193,23 +197,30 @@ function handleKeyup(event) {
   window.addEventListener("keyup", handleKeyup);
 </script>
 </head>
-<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg" onload="{
-  document.getElementById('myImg01').style.left = '400px';
-  document.getElementById('myImg01').style.top = '0px';
+<body id="myBody" style="background-repeat:repeat; background-size: 100%" background="myBackground01.jpg" onload="{
+  document.getElementById('myImg01').style.left = '770px';
+  document.getElementById('myImg01').style.top = '700px';
   gameLoop();
 }">
 
   <br><br><br><br>
-
-  <img id="myImg01" style="position:absolute; width:75px; height:135px; top:0px; left:400px;" src="myImageIdleRight.png">
-  <img id="myImg02" style="position:absolute; width:100px; height:80px; top:0px; left:250px;" src="myImage02.png">
-  <div id="platform1" class="platform" style="width:20px; height:750px; top:0px; left:0px;"></div>
-<div id="platform2" class="platform" style="width:20px; height:750px; top:0px; left:1550px;"></div>
-<div id="platform3" class="platform" style="width:1570px; height:20px; top:750px; left:0px;"></div>
-  <div id="platform4" class="platform" style="width:200px; height:20px; top:300px; left:100px;"></div>
-<div id="platform5" class="platform" style="width:200px; height:20px; top:420px; left:300px;"></div>
-
-
+  <img id="myImg01" style="position:absolute; width:50px; height:90px; top:700px; left:770px;" src="idleRight.png">
+  <img id="myImg02" style="position:absolute; width:67px; height:54px; top:0px; left:168px;" src="myImage02.png">
+  <div id="top" class="platform" style="width:1600px; height:13px; top:0px; left:0px;"></div>
+  <div id="platform1" class="platform" style="width:13px; height:744px; top:0px; left:0px;"></div>
+  <div id="platform2" class="platform" style="width:13px; height:744px; top:0px; left:1587px;"></div>
+  <div id="platform3" class="platform" style="width:1600px; height:13px; top:744px; left:0px;"></div>
+  <div id="platform4" class="platform" style="width:234px; height:13px; top:151px; left:350px;"></div>
+  <div id="platform5" class="platform" style="width:230px; height:13px; top:281px; left:201px;"></div>
+  <div id="platform6" class="platform" style="width:600px; height:100px; top:650px; left:0px;"></div>
+  <div id="platform7" class="platform" style="width:600px; height:100px; top:650px; left:1000px;"></div>
+  <div id="platform8" class="platform" style="width:500px; height:13px; top:525px; left:550px;"></div>
+  <div id="platform9" class="platform" style="width:134px; height:13px; top:400px; left:1150px;"></div>
+  <div id="platform10" class="platform" style="width:250px; height:13px; top:300px; left:1350px;"></div>
+  <div id="platform11" class="platform" style="width:134px; height:13px; top:200px; left:1150px;"></div>
+  <div id="platform12" class="platform" style="width:434px; height:70px; top:10px; left:850px;"></div>
+  <div id="platform13" class="platform" style="width:134px; height:13px; top:200px; left:950px;"></div>
+  <div id="platform14" class="platform" style="width:254px; height:13px; top:350px; left:550px;"></div>
  <!-- clearInterval(myClock);
   let myTemp =  myGlobalX + 'px 0px';
  document.getElementById('myBody').style.backgroundPosition = myTemp; !-->
