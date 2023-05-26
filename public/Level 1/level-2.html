@@ -18,19 +18,19 @@
   let jumping = false;
   let gravity = 0.6;
   let vy = 0;
-  const moveSpeed = 5;
-  const jumpForce = -13;
+  let moveSpeed = 5;
+  let jumpForce = -13;
   let moveLeft = false;
   let moveRight = false;
   let lastMoveDirection = 'right';
+  let speedBoostTimeout = null;
 
-
-const imgIdleLeft = "idleLeft.gif";
-const imgIdleRight = "idleRight.gif";
-const imgMovingLeft = "movingLeft.gif";
-const imgMovingRight = "movingRight.gif";
-const imgJumpingLeft = "jumpingLeft.png";
-const imgJumpingRight = "jumpingRight.png";
+let imgIdleLeft = "idleLeft.gif";
+let imgIdleRight = "idleRight.gif";
+let imgMovingLeft = "movingLeft.gif";
+let imgMovingRight = "movingRight.gif";
+let imgJumpingLeft = "jumpingLeft.png";
+let imgJumpingRight = "jumpingRight.png";
 
 
 
@@ -53,16 +53,76 @@ const imgJumpingRight = "jumpingRight.png";
   }
 
   function myCheckHit() {
-    if ( myHitOther('myImg01','myImg02') ){
-       alert('you lose')  
-       document.getElementById('myImg01').style.left = '20px'
-       location = 't2a13-keydown.html'  // go to your next level
-   }
-   if ( myHitOther('myImg01','top') ){
-       document.getElementById('myImg01').style.left = '20px'
-       location = 'level 1 - 2.html'
-   }
+  if (myHitOther('myImg01', 'myImg02')) {
+    alert('you lose');
+    document.getElementById('myImg01').style.left = '20px';
+    location = 't2a13-keydown.html'; // go to your next level
   }
+  if (myHitOther('myImg01', 'top')) {
+    document.getElementById('myImg01').style.left = '20px';
+    location = 'level-3.html';
+  }
+
+  if (myHitOther('myImg01', 'jumppad')) {
+    jumpForce = -20;
+  } else {
+    jumpForce = -13;
+  }
+
+  if (myHitOther('myImg01', 'jumppad2')) {
+    moveSpeed = 8;
+    imgIdleLeft = "idleLeftRed.gif";
+    imgIdleRight = "idleRightRed.gif";
+    imgMovingLeft = "movingLeftRed.gif";
+    imgMovingRight = "movingRightRed.gif";
+    imgJumpingLeft = "jumpingLeftRed.png";
+    imgJumpingRight = "jumpingRightRed.png";
+
+    // clear the previous timeout
+    if (speedBoostTimeout !== null) {
+      clearTimeout(speedBoostTimeout);
+    }
+
+    // set a new timeout
+    speedBoostTimeout = setTimeout(function () {
+      moveSpeed = 5;
+      imgIdleLeft = "idleLeft.gif";
+      imgIdleRight = "idleRight.gif";
+      imgMovingLeft = "movingLeft.gif";
+      imgMovingRight = "movingRight.gif";
+      imgJumpingLeft = "jumpingLeft.png";
+      imgJumpingRight = "jumpingRight.png";
+      speedBoostTimeout = null;
+    }, 2000);
+  }
+
+  if (myHitOther('myImg01', 'jumppad3')) {
+    moveSpeed = 8;
+    imgIdleLeft = "idleLeftRed.gif";
+    imgIdleRight = "idleRightRed.gif";
+    imgMovingLeft = "movingLeftRed.gif";
+    imgMovingRight = "movingRightRed.gif";
+    imgJumpingLeft = "jumpingLeftRed.png";
+    imgJumpingRight = "jumpingRightRed.png";
+
+    // clear the previous timeout
+    if (speedBoostTimeout !== null) {
+      clearTimeout(speedBoostTimeout);
+    }
+
+    // set a new timeout
+    speedBoostTimeout = setTimeout(function () {
+      moveSpeed = 5;
+      imgIdleLeft = "idleLeft.gif";
+      imgIdleRight = "idleRight.gif";
+      imgMovingLeft = "movingLeft.gif";
+      imgMovingRight = "movingRight.gif";
+      imgJumpingLeft = "jumpingLeft.png";
+      imgJumpingRight = "jumpingRight.png";
+      speedBoostTimeout = null;
+    }, 2000);
+  }
+}
   let grounded = false;
   function gameLoop() {
   let player = document.getElementById("myImg01");
@@ -93,7 +153,7 @@ function checkCollisions() {
   let player = document.getElementById("myImg01");
   grounded = false;
 
-  let platforms = ['platform1','platform2','platform3','platform4','platform5'];
+  let platforms = ['platform1','platform2','platform3','platform4','platform5','platform6','platform7','platform8','platform9','platform10','platform11','platform12','platform13','platform14','platform15','platform16','platform17','platform18','platform19','platform20','platform21','platform22','platform23'];
 
   for (let i = 0; i < platforms.length; i++) {
     let platform = document.getElementById(platforms[i]);
@@ -204,14 +264,38 @@ function handleKeyup(event) {
 }">
 
   <br><br><br><br>
-  <img id="myImg01" style="position:absolute; width:50px; height:90px; top:650px; left:600px;" src="idleRight.png">
-  <img id="myImg02" style="position:absolute; width:67px; height:54px; top:0px; left:168px;" src="myImage02.png">
-  <div id="top" style="position: absolute; width:1600px; height:13px; top:0px; left:0px;"></div>
+  <div id="top" style="position: absolute; width:1600px; height:1px; top:0px; left:0px;"></div>
   <div id="platform1" class="platform" style="width:13px; height:757px; top:0px; left:0px;"></div>
   <div id="platform2" class="platform" style="width:13px; height:757px; top:0px; left:1587px;"></div>
   <div id="platform3" class="platform" style="width:534px; height:57px; top:700px; left:850px;"></div>
   <div id="platform4" class="platform" style="width:200px; height:13px; top:744px; left:585px;"></div>
   <div id="platform5" class="platform" style="width:1600px; height:1px; top:756px; left:0px;"></div>
+  <div id="jumppad" style="position: absolute; background-color: rgb(77, 196, 77); width:100px; height:4px; top:699px; left:1100px;"></div>
+  <div id="platform6" class="platform" style="width:150px; height:13px; top:430px; left:830px;"></div>
+  <div id="platform7" class="platform" style="width:300px; height:13px; top:500px; left:525px;"></div>
+  <div id="jumppad2" style="position: absolute; background-color: rgb(201, 70, 70); width:150px; height:4px; top:500px; left:600px;"></div>
+  <div id="platform8" class="platform" style="width:180px; height:13px; top:550px; left:0px;"></div>
+  <div id="platform9" class="platform" style="width:8px; height:13px; top:450px; left:1582px;"></div>
+  <div id="platform10" class="platform" style="width:8px; height:13px; top:330px; left:1582px;"></div>
+  <div id="platform11" class="platform" style="width:8px; height:13px; top:210px; left:1582px;"></div>
+  <div id="platform12" class="platform" style="width:100px; height:13px; top:410px; left:0px;"></div>
+  <div id="platform13" class="platform" style="width:120px; height:13px; top:280px; left:150px;"></div>
+  <div id="platform14" class="platform" style="width:120px; height:13px; top:150px; left:300px;"></div>
+  <div id="platform15" class="platform" style="width:200px; height:13px; top:200px; left:500px;"></div>
+  <div id="platform16" class="platform" style="width:1250px; height:13px; top:0px; left:0px;"></div>
+  <div id="platform17" class="platform" style="width:100px; height:13px; top:200px; left:775px;"></div>
+  <div id="platform18" class="platform" style="width:600px; height:96px; top:13px; left:600px;"></div>
+  <div id="platform19" class="platform" style="width:100px; height:13px; top:200px; left:950px;"></div>
+  <div id="platform20" class="platform" style="width:300px; height:13px; top:200px; left:1125px;"></div>
+  <div id="platform21" class="platform" style="width:270px; height:13px; top:0px; left:1320px;"></div>
+  <div id="jumppad3" style="position: absolute; background-color: rgb(201, 70, 70); width:150px; height:4px; top:199px; left:530px;"></div>
+  <div id="platform22" style="width:1px; height:80px; top:0px; left:1245px;"></div>
+  <div id="platform23" style="width:1px; height:80px; top:0px; left:1325px;"></div>
+
+
+  <img id="myImg01" style="position:absolute; width:50px; height:90px; top:650px; left:600px;" src="idleRight.png">
+  <img id="myImg02" style="position:absolute; width:67px; height:54px; top:0px; left:168px;" src="myImage02.png">
+  <img id="myImg03" style="position:absolute; rotate: 180deg; width:80px; height:80px; top:0px; left:1245px;" src="pipe.png">
   <br><br>
 </body>
 </html>
